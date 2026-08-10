@@ -9,7 +9,7 @@ import {
 } from '@/lib/enquiry'
 
 const resend = new Resend(process.env.RESEND_API_KEY || 'placeholder')
-const allowedVariants = new Set(VARIANT_OPTIONS.map((variant) => variant.value))
+const allowedVariants = new Set<string>(VARIANT_OPTIONS.map((variant) => variant.value))
 
 function esc(str: string): string {
   return String(str ?? '')

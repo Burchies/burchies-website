@@ -11,6 +11,10 @@ import {
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 
+function errorId(field: keyof EnquiryErrors) {
+  return 'f-' + field + '-error'
+}
+
 export function EnquiryForm() {
   const [form, setForm] = useState<CateringEnquiry>({
     name: '',
@@ -22,9 +26,11 @@ export function EnquiryForm() {
     location: '',
     variants: [],
     message: '',
+    website: '',
   })
   const [errors, setErrors] = useState<EnquiryErrors>({})
   const [status, setStatus] = useState<Status>('idle')
+  const hasErrors = Object.keys(errors).length > 0
 
   function toggleVariant(value: string) {
     setForm((f) => ({
@@ -40,8 +46,13 @@ export function EnquiryForm() {
     const errs = validateEnquiry(form)
     if (!isValid(errs)) {
       setErrors(errs)
+      const firstError = Object.keys(errs)[0] as keyof EnquiryErrors
+      requestAnimationFrame(() => {
+        document.getElementById('f-' + firstError)?.focus()
+      })
       return
     }
+
     setErrors({})
     setStatus('submitting')
 
@@ -69,7 +80,11 @@ export function EnquiryForm() {
 
   if (status === 'success') {
     return (
-      <div className="flex flex-col items-center justify-center gap-4 py-16 px-8 text-center bg-bone rounded-sm border border-charcoal/10">
+      <div
+        role="status"
+        aria-live="polite"
+        className="flex flex-col items-center justify-center gap-4 py-16 px-8 text-center bg-bone rounded-sm border border-charcoal/10"
+      >
         <div className="w-14 h-14 rounded-full bg-ember/10 flex items-center justify-center text-3xl">
           🍗
         </div>
@@ -85,7 +100,35 @@ export function EnquiryForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-7" noValidate>
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-7"
+      noValidate
+      aria-describedby={hasErrors ? 'form-errors' : undefined}
+    >
+      {hasErrors && (
+        <div
+          id="form-errors"
+          role="alert"
+          aria-live="polite"
+          className="rounded-sm border border-ember/30 bg-ember/5 px-4 py-3 text-sm text-charcoal"
+        >
+          Please check the highlighted fields before sending your enquiry.
+        </div>
+      )}
+
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="f-website">Website</label>
+        <input
+          id="f-website"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          value={form.website ?? ''}
+          onChange={(e) => setForm((f) => ({ ...f, website: e.target.value }))}
+        />
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
         <div>
           <label htmlFor="f-name" className={labelClass}>
@@ -93,62 +136,92 @@ export function EnquiryForm() {
           </label>
           <input
             id="f-name"
+            name="name"
+            autoComplete="name"
+            required
             className={inputClass}
             placeholder="Your name"
             value={form.name}
+            aria-invalid={Boolean(errors.name)}
+            aria-describedby={errors.name ? errorId('name') : undefined}
             onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
           />
-          {errors.name && <p className={errorClass}>{errors.name}</p>}
+          {errors.name && <p id={errorId('name')} className={errorClass}>{errors.name}</p>}
         </div>
+
         <div>
           <label htmlFor="f-email" className={labelClass}>
             Email
           </label>
           <input
             id="f-email"
+            name="email"
             type="email"
+            autoComplete="email"
+            required
             className={inputClass}
             placeholder="you@example.com"
             value={form.email}
+            aria-invalid={Boolean(errors.email)}
+            aria-describedby={errors.email ? errorId('email') : undefined}
             onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
           />
-          {errors.email && <p className={errorClass}>{errors.email}</p>}
+          {errors.email && <p id={errorId('email')} className={errorClass}>{errors.email}</p>}
         </div>
+
         <div>
           <label htmlFor="f-phone" className={labelClass}>
             Phone
           </label>
           <input
             id="f-phone"
+            name="phone"
             type="tel"
+            autoComplete="tel"
+            required
             className={inputClass}
             placeholder="021 123 4567"
             value={form.phone}
+            aria-invalid={Boolean(errors.phone)}
+            aria-describedby={errors.phone ? errorId('phone') : undefined}
             onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
           />
-          {errors.phone && <p className={errorClass}>{errors.phone}</p>}
+          {errors.phone && <p id={errorId('phone')} className={errorClass}>{errors.phone}</p>}
         </div>
+
         <div>
           <label htmlFor="f-date" className={labelClass}>
             Event date
           </label>
           <input
             id="f-date"
+            name="eventDate"
             type="date"
+            autoComplete="off"
+            required
+            min={new Date().toISOString().slice(0, 10)}
             className={inputClass}
             value={form.eventDate}
+            aria-invalid={Boolean(errors.eventDate)}
+            aria-describedby={errors.eventDate ? errorId('eventDate') : undefined}
             onChange={(e) => setForm((f) => ({ ...f, eventDate: e.target.value }))}
           />
-          {errors.eventDate && <p className={errorClass}>{errors.eventDate}</p>}
+          {errors.eventDate && <p id={errorId('eventDate')} className={errorClass}>{errors.eventDate}</p>}
         </div>
+
         <div>
           <label htmlFor="f-type" className={labelClass}>
             What kind of event?
           </label>
           <select
             id="f-type"
-            className={`${inputClass} appearance-none`}
+            name="eventType"
+            autoComplete="off"
+            required
+            className={inputClass + ' appearance-none'}
             value={form.eventType}
+            aria-invalid={Boolean(errors.eventType)}
+            aria-describedby={errors.eventType ? errorId('eventType') : undefined}
             onChange={(e) =>
               setForm((f) => ({ ...f, eventType: e.target.value as CateringEnquiry['eventType'] }))
             }
@@ -160,22 +233,28 @@ export function EnquiryForm() {
               </option>
             ))}
           </select>
-          {errors.eventType && <p className={errorClass}>{errors.eventType}</p>}
+          {errors.eventType && <p id={errorId('eventType')} className={errorClass}>{errors.eventType}</p>}
         </div>
+
         <div>
           <label htmlFor="f-guests" className={labelClass}>
             How many hungry humans?
           </label>
           <input
             id="f-guests"
+            name="guests"
             type="number"
-            min={1}
+            inputMode="numeric"
+            min={20}
+            required
             className={inputClass}
             placeholder="Approx. headcount"
             value={form.guests}
+            aria-invalid={Boolean(errors.guests)}
+            aria-describedby={errors.guests ? errorId('guests') : undefined}
             onChange={(e) => setForm((f) => ({ ...f, guests: e.target.value }))}
           />
-          {errors.guests && <p className={errorClass}>{errors.guests}</p>}
+          {errors.guests && <p id={errorId('guests')} className={errorClass}>{errors.guests}</p>}
         </div>
       </div>
 
@@ -185,15 +264,24 @@ export function EnquiryForm() {
         </label>
         <input
           id="f-location"
+          name="location"
+          autoComplete="street-address"
+          required
           className={inputClass}
           placeholder="Suburb, venue, or full address"
           value={form.location}
+          aria-invalid={Boolean(errors.location)}
+          aria-describedby={errors.location ? errorId('location') : undefined}
           onChange={(e) => setForm((f) => ({ ...f, location: e.target.value }))}
         />
-        {errors.location && <p className={errorClass}>{errors.location}</p>}
+        {errors.location && <p id={errorId('location')} className={errorClass}>{errors.location}</p>}
       </div>
 
-      <fieldset>
+      <fieldset
+        id="f-variants"
+        tabIndex={-1}
+        aria-describedby={errors.variants ? errorId('variants') : undefined}
+      >
         <legend className={labelClass}>Sauces you&rsquo;re after (pick one or all)</legend>
         <div className="flex flex-wrap gap-2 mt-3">
           {VARIANT_OPTIONS.map(({ value, label }) => (
@@ -202,17 +290,15 @@ export function EnquiryForm() {
               type="button"
               onClick={() => toggleVariant(value)}
               aria-pressed={form.variants.includes(value)}
-              className={`text-xs tracking-wide uppercase px-4 py-2 rounded-sm border transition-all duration-200 ${
-                form.variants.includes(value)
-                  ? 'bg-ember text-cream border-ember'
-                  : 'border-charcoal/20 text-charcoal/70 hover:border-ember'
-              }`}
+              className={`text-xs tracking-wide uppercase px-4 py-2 rounded-sm border transition-all duration-200 ${form.variants.includes(value)
+                ? 'bg-ember text-cream border-ember'
+                : 'border-charcoal/20 text-charcoal/70 hover:border-ember'}`}
             >
               {label}
             </button>
           ))}
         </div>
-        {errors.variants && <p className={errorClass}>{errors.variants}</p>}
+        {errors.variants && <p id={errorId('variants')} className={errorClass}>{errors.variants}</p>}
       </fieldset>
 
       <div>
@@ -224,16 +310,19 @@ export function EnquiryForm() {
         </label>
         <textarea
           id="f-message"
+          name="message"
+          autoComplete="off"
           rows={4}
-          className={`${inputClass} resize-none`}
+          className={inputClass + ' resize-none'}
           placeholder="Any allergens, theme, deadlines, or hot tips we should know?"
           value={form.message}
+          aria-describedby={undefined}
           onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
         />
       </div>
 
       {status === 'error' && (
-        <p className="text-sm text-ember" role="alert">
+        <p className="text-sm text-ember" role="alert" aria-live="polite">
           Something went wrong. Try again, or drop us a DM on{' '}
           <a
             className="underline decoration-ember/40 underline-offset-2"

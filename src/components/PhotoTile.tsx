@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { useDialogFocus } from '@/lib/useDialogFocus'
 
 interface Props {
   src: string
@@ -17,32 +18,19 @@ export function PhotoTile({ src, alt, sizes, className = '', priority }: Props) 
   const [open, setOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const reduce = useReducedMotion()
+  const close = () => setOpen(false)
+  const dialogRef = useDialogFocus(open, close)
 
   useEffect(() => setMounted(true), [])
-
-  useEffect(() => {
-    if (!open) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false)
-    }
-    window.addEventListener('keydown', onKey)
-    const prevOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    window.__lenis?.stop()
-    return () => {
-      window.removeEventListener('keydown', onKey)
-      document.body.style.overflow = prevOverflow
-      window.__lenis?.start()
-    }
-  }, [open])
 
   return (
     <>
       <motion.button
         type="button"
         onClick={() => setOpen(true)}
-        aria-label={`View ${alt}`}
-        className={`${className} group relative overflow-hidden rounded-sm bg-bone shadow-md cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-cream`}
+        aria-label={'View ' + alt}
+        aria-haspopup="dialog"
+        className={className + ' group relative overflow-hidden rounded-sm bg-bone shadow-md cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-cream'}
         whileHover={reduce ? undefined : { y: -2 }}
         whileTap={reduce ? undefined : { scale: 0.97 }}
         transition={{ type: 'spring', stiffness: 380, damping: 28 }}
@@ -62,52 +50,56 @@ export function PhotoTile({ src, alt, sizes, className = '', priority }: Props) 
       </motion.button>
 
       {mounted && createPortal(
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            key="lightbox"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/92 backdrop-blur-sm p-4 md:p-10"
-            onClick={() => setOpen(false)}
-            role="dialog"
-            aria-modal="true"
-            aria-label={alt}
-          >
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation()
-                setOpen(false)
-              }}
-              aria-label="Close image"
-              className="absolute top-4 right-4 md:top-6 md:right-6 z-10 w-11 h-11 rounded-full bg-cream/10 hover:bg-cream/20 active:bg-cream/30 text-cream text-xl flex items-center justify-center transition-colors"
-            >
-              ✕
-            </button>
+        <AnimatePresence>
+          {open && (
             <motion.div
-              initial={{ scale: 0.94, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.94, opacity: 0 }}
-              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full h-full max-w-6xl max-h-[88vh]"
-              onClick={(e) => e.stopPropagation()}
+              ref={dialogRef}
+              tabIndex={-1}
+              key="lightbox"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/92 backdrop-blur-sm p-4 md:p-10"
+              onClick={close}
+              role="dialog"
+              aria-modal="true"
+              aria-label={alt}
             >
-              <Image
-                src={src}
-                alt={alt}
-                fill
-                sizes="100vw"
-                className="object-contain"
-                priority
-              />
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  close()
+                }}
+                data-dialog-close
+                aria-label="Close image"
+                className="absolute top-4 right-4 md:top-6 md:right-6 z-10 w-11 h-11 rounded-full bg-cream/10 hover:bg-cream/20 active:bg-cream/30 text-cream text-xl flex items-center justify-center transition-colors"
+              >
+                ✕
+              </button>
+              <motion.div
+                initial={{ scale: 0.94, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.94, opacity: 0 }}
+                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                className="relative w-full h-full max-w-6xl max-h-[88vh]"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Image
+                  src={src}
+                  alt={alt}
+                  fill
+                  sizes="100vw"
+                  className="object-contain"
+                  priority
+                />
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>,
-      document.body)}
+          )}
+        </AnimatePresence>,
+        document.body,
+      )}
     </>
   )
 }

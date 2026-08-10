@@ -30,17 +30,40 @@ const jetbrains = JetBrains_Mono({
   display: 'swap',
 })
 
+const socialImage = '/instagram/2026-02-11_07-00-20_DUm8RCHj8Qv_2.jpg'
+
 export const metadata: Metadata = {
   title: "Burchie's Fried Chicken — Auckland food truck",
   description:
     "Crispy, juicy fried chicken — American, Mexican, Thai, Korean, O.G. Five sauces, one truck, wherever the queue goes. Auckland, Aotearoa.",
   metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "Burchie's Fried Chicken",
     description:
       'Five sauces. One truck. Wherever the queue goes. Auckland food truck serving seriously crispy fried chicken (and cauliflower for our vegetarian friends).',
     type: 'website',
     locale: 'en_NZ',
+    url: SITE_URL,
+    images: [
+      {
+        url: socialImage,
+        alt: "Burchie's Fried Chicken truck in Auckland",
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Burchie's Fried Chicken",
+    description:
+      'Five sauces. One truck. Wherever the queue goes. Auckland food truck serving seriously crispy fried chicken.',
+    images: [socialImage],
   },
 }
 
@@ -50,7 +73,12 @@ export default function RootLayout({
   return (
     <html
       lang="en-NZ"
-      className={`${bricolage.variable} ${fraunces.variable} ${dmSans.variable} ${jetbrains.variable}`}
+      className={[
+        bricolage.variable,
+        fraunces.variable,
+        dmSans.variable,
+        jetbrains.variable,
+      ].join(' ')}
     >
       <body className="min-h-screen bg-cream text-charcoal">
         <LenisProvider />

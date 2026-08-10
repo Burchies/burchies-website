@@ -5,10 +5,36 @@ import { AnimatedSection } from '@/components/AnimatedSection'
 import { EnquiryForm } from '@/components/EnquiryForm'
 import { PhotoTile } from '@/components/PhotoTile'
 
+const socialImage = '/instagram/2026-02-11_07-00-20_DUm8RCHj8Qv_2.jpg'
+
 export const metadata: Metadata = {
   title: "Catering — Burchie's Fried Chicken",
   description:
-    "Book Burchie\u2019s Fried Chicken food truck for weddings, corporate events, birthdays, and private parties across Auckland. Minimum 20 guests.",
+    "Book Burchie's Fried Chicken food truck for weddings, corporate events, birthdays, and private parties across Auckland. Minimum 20 guests.",
+  alternates: {
+    canonical: '/catering',
+  },
+  openGraph: {
+    title: "Catering — Burchie's Fried Chicken",
+    description:
+      "Book Burchie's Fried Chicken food truck for weddings, corporate events, birthdays, and private parties across Auckland.",
+    type: 'website',
+    locale: 'en_NZ',
+    url: '/catering',
+    images: [
+      {
+        url: socialImage,
+        alt: "Burchie's Fried Chicken catering setup",
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Catering — Burchie's Fried Chicken",
+    description:
+      "Book Burchie's Fried Chicken food truck for weddings, corporate events, birthdays, and private parties across Auckland.",
+    images: [socialImage],
+  },
 }
 
 const perks = [

@@ -8,24 +8,28 @@ export function WhereSection() {
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <p className="text-[11px] tracking-widest uppercase text-ember font-semibold mb-3">
-            This week
+            Usual stops
           </p>
           <h2 className="font-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight text-charcoal max-w-3xl">
             Find the <em className="font-editorial italic text-ember not-italic">truck.</em>
           </h2>
+          <p className="mt-5 max-w-2xl text-base md:text-lg text-charcoal/70 leading-relaxed">
+            These are typical weekly stops, not a guaranteed timetable. Check
+            Instagram before travelling for the latest location and opening time.
+          </p>
         </AnimatedSection>
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
           <div>
             <AnimatedSection>
               <p className="text-[10px] tracking-widest uppercase text-charcoal/50 font-semibold mb-6 pb-3 border-b border-charcoal/15">
-                Regular weekly stops
+                Typical weekly stops · confirm day-of
               </p>
             </AnimatedSection>
             <ScheduleGrid />
             <AnimatedSection delay={0.3}>
               <p className="mt-8 text-sm text-charcoal/60 italic">
-                Schedule shifts — always double-check{' '}
+                Schedule changes happen — always double-check{' '}
                 <a
                   href="https://www.instagram.com/burchies.fried.chicken/"
                   target="_blank"

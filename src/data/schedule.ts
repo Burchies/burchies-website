@@ -12,8 +12,8 @@ export interface ScheduleSlot {
 
 const byName = Object.fromEntries(venues.map((v) => [v.name, v]))
 
-// NOTE: Schedule placeholder based on recent Instagram posts — needs Thomas
-// to confirm the current weekly lineup before v1 goes fully public.
+// These are typical stops sourced from recent Instagram posts. Confirm the
+// current lineup with Thomas before treating them as a guaranteed schedule.
 export const schedule: ScheduleSlot[] = [
   {
     day: 'Thu',

@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 interface Props {
   text: string
   className?: string
-  as?: 'h1' | 'h2' | 'h3' | 'p'
+  as?: 'h1' | 'h2' | 'h3' | 'p' | 'span'
 }
 
 export function AnimatedWords({ text, className = '', as: Tag = 'h1' }: Props) {
@@ -16,9 +16,7 @@ export function AnimatedWords({ text, className = '', as: Tag = 'h1' }: Props) {
   }
 
   return (
-    // overflow-hidden clips the word-reveal mask, but the rect must leave
-    // room for italic descenders (p, y, g) — hence the em-scaled padding.
-    <Tag className={`${className} overflow-hidden pb-[0.18em] -mb-[0.12em]`}>
+    <Tag className={className + ' overflow-hidden pb-[0.18em] -mb-[0.12em]'}>
       {words.map((word, i) => (
         <motion.span
           key={i}

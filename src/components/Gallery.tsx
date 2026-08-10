@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import Image from 'next/image'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import { useDialogFocus } from '@/lib/useDialogFocus'
 
 export interface GalleryImage {
   src: string
@@ -25,9 +26,6 @@ export function Gallery({
   const [lightbox, setLightbox] = useState<number | null>(null)
   const [mounted, setMounted] = useState(false)
   const reduce = useReducedMotion()
-
-  useEffect(() => setMounted(true), [])
-
   const close = useCallback(() => setLightbox(null), [])
   const prev = useCallback(
     () => setLightbox((i) => (i !== null ? Math.max(0, i - 1) : null)),
@@ -40,29 +38,19 @@ export function Gallery({
       ),
     [images.length],
   )
+  const dialogRef = useDialogFocus(lightbox !== null, close)
+
+  useEffect(() => setMounted(true), [])
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (lightbox === null) return
-      if (e.key === 'Escape') close()
       if (e.key === 'ArrowLeft') prev()
       if (e.key === 'ArrowRight') next()
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [lightbox, close, prev, next])
-
-  // Lock page scroll (including Lenis smooth-scroll) while the lightbox is open
-  useEffect(() => {
-    if (lightbox === null) return
-    const prevOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    window.__lenis?.stop()
-    return () => {
-      document.body.style.overflow = prevOverflow
-      window.__lenis?.start()
-    }
-  }, [lightbox])
+  }, [lightbox, prev, next])
 
   return (
     <section id="gallery" className="relative px-6 md:px-12 py-16 md:py-24 bg-smoke text-cream noise">
@@ -73,9 +61,7 @@ export function Gallery({
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
         >
-          <p className="text-[11px] tracking-widest uppercase text-amber font-semibold mb-3">
-            {eyebrow}
-          </p>
+          <p className="text-[11px] tracking-widest uppercase text-amber font-semibold mb-3">{eyebrow}</p>
           <h2 className="font-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight">
             {heading}{' '}
             <em className="font-editorial italic text-amber not-italic">{highlight}</em>
@@ -89,7 +75,8 @@ export function Gallery({
               type="button"
               className="reveal-mobile mb-3 break-inside-avoid cursor-pointer overflow-hidden rounded-sm bg-charcoal block w-full [content-visibility:auto] [contain-intrinsic-size:1px_400px]"
               onClick={() => setLightbox(i)}
-              aria-label={`Open ${img.alt}`}
+              aria-label={'Open ' + img.alt}
+              aria-haspopup="dialog"
             >
               <div className="relative w-full group">
                 <Image
@@ -108,62 +95,72 @@ export function Gallery({
       </div>
 
       {mounted && createPortal(
-      <AnimatePresence>
-        {lightbox !== null && (
-          <motion.div
-            className="fixed inset-0 z-[100] bg-charcoal/95 flex items-center justify-center p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            onClick={close}
-          >
+        <AnimatePresence>
+          {lightbox !== null && (
             <motion.div
-              className="relative max-w-4xl max-h-[90vh]"
-              initial={reduce ? false : { scale: 0.94, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.94, opacity: 0 }}
+              ref={dialogRef}
+              tabIndex={-1}
+              className="fixed inset-0 z-[100] bg-charcoal/95 flex items-center justify-center p-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Image
-                src={images[lightbox].src}
-                alt={images[lightbox].alt}
-                width={1400}
-                height={1800}
-                className="max-h-[85vh] w-auto object-contain rounded-sm"
-              />
-            </motion.div>
-
-            <button
               onClick={close}
-              className="absolute top-6 right-6 text-cream/70 hover:text-cream text-3xl leading-none"
-              aria-label="Close"
+              role="dialog"
+              aria-modal="true"
+              aria-label={'Gallery image ' + images[lightbox].alt}
             >
-              ✕
-            </button>
-            {lightbox > 0 && (
-              <button
-                onClick={(e) => { e.stopPropagation(); prev() }}
-                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-cream/70 hover:text-cream text-4xl"
-                aria-label="Previous"
+              <motion.div
+                className="relative max-w-4xl max-h-[90vh]"
+                initial={reduce ? false : { scale: 0.94, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.94, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                onClick={(e) => e.stopPropagation()}
               >
-                ‹
-              </button>
-            )}
-            {lightbox < images.length - 1 && (
+                <Image
+                  src={images[lightbox].src}
+                  alt={images[lightbox].alt}
+                  width={1400}
+                  height={1800}
+                  className="max-h-[85vh] w-auto object-contain rounded-sm"
+                />
+              </motion.div>
+
               <button
-                onClick={(e) => { e.stopPropagation(); next() }}
-                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-cream/70 hover:text-cream text-4xl"
-                aria-label="Next"
+                type="button"
+                onClick={close}
+                data-dialog-close
+                className="absolute top-6 right-6 text-cream/70 hover:text-cream text-3xl leading-none"
+                aria-label="Close"
               >
-                ›
+                ✕
               </button>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>,
-      document.body)}
+              {lightbox > 0 && (
+                <button
+                  type="button"
+                  onClick={(e) => { e.stopPropagation(); prev() }}
+                  className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-cream/70 hover:text-cream text-4xl"
+                  aria-label="Previous"
+                >
+                  ‹
+                </button>
+              )}
+              {lightbox < images.length - 1 && (
+                <button
+                  type="button"
+                  onClick={(e) => { e.stopPropagation(); next() }}
+                  className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-cream/70 hover:text-cream text-4xl"
+                  aria-label="Next"
+                >
+                  ›
+                </button>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body,
+      )}
     </section>
   )
 }

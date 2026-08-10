@@ -9,6 +9,7 @@ import {
 } from '@/lib/enquiry'
 
 const resend = new Resend(process.env.RESEND_API_KEY || 'placeholder')
+const allowedEventTypes = new Set<string>(EVENT_TYPES)
 const allowedVariants = new Set<string>(VARIANT_OPTIONS.map((variant) => variant.value))
 
 function esc(str: string): string {
@@ -41,7 +42,7 @@ function parseEnquiry(value: unknown): CateringEnquiry | null {
     email: asString(raw.email),
     phone: asString(raw.phone),
     eventDate: asString(raw.eventDate),
-    eventType: EVENT_TYPES.includes(rawEventType as CateringEnquiry['eventType'])
+    eventType: allowedEventTypes.has(rawEventType)
       ? rawEventType as CateringEnquiry['eventType']
       : '',
     guests: asString(raw.guests),

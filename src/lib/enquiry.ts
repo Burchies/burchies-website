@@ -20,6 +20,7 @@ export interface CateringEnquiry {
   location: string
   variants: string[]
   message: string
+  website?: string
 }
 
 export interface EnquiryErrors {
@@ -40,7 +41,7 @@ export function validateEnquiry(data: CateringEnquiry): EnquiryErrors {
   const errors: EnquiryErrors = {}
 
   if (!data.name.trim()) {
-    errors.name = 'We need a name to yell out when it\u2019s ready'
+    errors.name = 'We need a name to yell out when it’s ready'
   }
 
   const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -54,7 +55,7 @@ export function validateEnquiry(data: CateringEnquiry): EnquiryErrors {
   if (!data.phone.trim()) {
     errors.phone = 'A phone number helps — catering comms move fast'
   } else if (!phoneRe.test(data.phone)) {
-    errors.phone = 'That doesn\u2019t look like a phone number'
+    errors.phone = 'That doesn’t look like a phone number'
   }
 
   if (!data.eventDate) {
@@ -64,9 +65,9 @@ export function validateEnquiry(data: CateringEnquiry): EnquiryErrors {
     const today = new Date()
     today.setHours(0, 0, 0, 0)
     if (Number.isNaN(d.valueOf())) {
-      errors.eventDate = 'That date doesn\u2019t parse — try YYYY-MM-DD'
+      errors.eventDate = 'That date doesn’t parse — try YYYY-MM-DD'
     } else if (d.valueOf() < today.valueOf()) {
-      errors.eventDate = 'Sorry, we don\u2019t cater events in the past'
+      errors.eventDate = 'Sorry, we don’t cater events in the past'
     }
   }
 
@@ -81,7 +82,7 @@ export function validateEnquiry(data: CateringEnquiry): EnquiryErrors {
     if (!Number.isFinite(n) || n < 1) {
       errors.guests = 'Enter a real number'
     } else if (n < MIN_GUESTS) {
-      errors.guests = `We start at ${MIN_GUESTS} guests for catering`
+      errors.guests = 'We start at ' + MIN_GUESTS + ' guests for catering'
     }
   }
 

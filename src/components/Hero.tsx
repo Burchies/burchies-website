@@ -10,7 +10,6 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[100svh] overflow-hidden">
-      {/* ─── Full-bleed hero photo ───────────────────────────────────── */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/instagram/2026-02-11_07-00-20_DUm8RCHj8Qv_2.jpg"
@@ -24,11 +23,6 @@ export function Hero() {
           blurDataURL={HERO_BLUR}
         />
 
-        {/* Stacked overlays that darken the frame so cream text reads cleanly.
-            Layer 1: dense charcoal from the bottom-left corner so the CTAs sit
-                     on a solid read zone.
-            Layer 2: smoke wash over the whole frame to mute the bright truck.
-            Layer 3: subtle ember glow up top to keep the palette warm. */}
         <div
           aria-hidden
           className="absolute inset-0 bg-gradient-to-tr from-charcoal/90 from-0% via-charcoal/60 via-35% to-transparent to-65%"
@@ -40,10 +34,8 @@ export function Hero() {
         />
       </div>
 
-      {/* Grainy overlay for warmth */}
       <div aria-hidden className="absolute inset-0 z-[1] noise pointer-events-none" />
 
-      {/* ─── Content ──────────────────────────────────────────────────── */}
       <div className="relative z-10 min-h-[100svh] flex flex-col justify-end md:justify-center px-6 md:px-12 pt-32 pb-16 md:pb-24">
         <div className="max-w-6xl w-full mx-auto">
           <motion.p
@@ -56,14 +48,14 @@ export function Hero() {
             Auckland · Since May 2025
           </motion.p>
 
-          <div className="font-display text-[clamp(2.75rem,8vw,7.5rem)] leading-[0.9] font-bold tracking-tight text-cream">
-            <AnimatedWords text="Fried chicken," as="h1" className="block" />
+          <h1 className="font-display text-[clamp(2.75rem,8vw,7.5rem)] leading-[0.9] font-bold tracking-tight text-cream">
+            <AnimatedWords text="Fried chicken," as="span" className="block" />
             <AnimatedWords
               text="done properly."
-              as="h1"
+              as="span"
               className="block font-editorial italic font-semibold text-amber"
             />
-          </div>
+          </h1>
 
           <motion.p
             initial={reduce ? false : { opacity: 0, y: 16 }}
@@ -95,7 +87,6 @@ export function Hero() {
           </motion.div>
         </div>
       </div>
-
     </section>
   )
 }

@@ -18,6 +18,11 @@ export function MenuGrid() {
           <h2 className="font-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight text-charcoal max-w-3xl">
             Pick your <em className="font-editorial italic text-ember not-italic">heat.</em>
           </h2>
+          <p className="mt-5 max-w-2xl text-base md:text-lg text-charcoal/75 leading-relaxed">
+            Choose your style, then ask the crew for the current price and
+            allergen guidance at the truck. Recipes and availability can change
+            between stops.
+          </p>
         </AnimatedSection>
 
         <motion.div
@@ -58,7 +63,8 @@ export function MenuGrid() {
 
         <AnimatedSection delay={0.4}>
           <p className="mt-8 text-xs text-charcoal/60 italic">
-            Prices + allergen info coming soon. Everything&rsquo;s marinated for 24 hours and double-fried — you know the drill.
+            Current pricing and allergen information are confirmed at each stop.
+            Please ask the crew before ordering if you have an allergy.
           </p>
         </AnimatedSection>
       </div>

@@ -2,53 +2,36 @@ import type { MenuItem } from '@/components/MenuCard'
 
 export const menu: MenuItem[] = [
   {
-    name: 'O.G.',
+    name: 'Loaded fries',
     description:
-      'Unadulterated. 24-hour marinade. Double-fried for that extra crunch. Chicken as it was intended.',
-    punchline: 'The one that started it all.',
-    imageSrc: '/instagram/2025-06-05_23-05-07_DKiXJr7hSPL.jpg',
-    imageAlt: "Burchie's O.G. — plain double-fried chicken pieces",
+      'Crinkle-cut fries loaded with fried chicken bites, pickles, and your choice of sauce.',
+    punchline: 'The messy one. Worth it.',
+    imageSrc: '/menu/loaded-chicken-fries.jpg',
+    imageAlt: "Loaded fries topped with fried chicken, sauce, and pickles",
   },
   {
-    name: 'American',
+    name: 'Fried chicken sandwich',
     description:
-      'Crispy fried chicken, buffalo sauce, ranch, and chives.',
-    punchline: 'Basically a dare.',
-    imageSrc: '/instagram/2025-05-30_00-15-45_DKQdq8GSCyM.jpg',
-    imageAlt: "Burchie's American-style chicken with buffalo sauce, ranch, and chives",
+      'Buttermilk fried chicken thigh, slaw, pickles, brioche bun, and your choice of sauce.',
+    punchline: 'Crispy, saucy, properly stacked.',
+    imageSrc: '/menu/fried-chicken-sandwich.jpg',
+    imageAlt: "Burchie's fried chicken sandwich with slaw, pickles, and sauce",
   },
   {
-    name: 'Mexican',
+    name: 'Fried chicken bites',
     description:
-      'Crispy chicken, Mexican spices, chipotle mayo, pickled jalapeños.',
-    punchline: 'Heat with a hug.',
-    imageSrc: '/instagram/2025-05-27_06-23-58_DKJZbJ0PO4I.jpg',
-    imageAlt: "Burchie's Mexican-style chicken with chipotle mayo and pickled jalapeños",
+      'Buttermilk fried chicken bites, slaw, pickles, and your choice of sauce.',
+    punchline: 'New on the menu.',
+    imageSrc: '/menu/fried-chicken-bites.jpg',
+    imageAlt: "Burchie's fried chicken bites served with slaw, pickles, and sauce",
   },
   {
-    name: 'Thai',
+    name: 'Fried cauliflower',
     description:
-      'Sweet Thai chilli-lime sauce, fresh coriander, crushed peanuts.',
-    punchline: 'Refreshing. Deceptive.',
-    imageSrc: '/instagram/2025-06-01_06-17-41_DKWQrl6PD8D.jpg',
-    imageAlt: "Burchie's Thai-style chicken with sweet chilli-lime sauce, coriander, and crushed peanuts",
-  },
-  {
-    name: 'Korean',
-    description:
-      'Gochujang sauce, Kewpie mayo, sesame seeds, scallions.',
-    punchline: 'Sticky, spicy, gone in 30 seconds.',
-    imageSrc: '/instagram/2025-07-17_03-54-25_DMMc2gBv-n3.jpg',
-    imageAlt: "Burchie's Korean-style chicken with gochujang, Kewpie mayo, sesame, and scallions",
-  },
-  {
-    name: 'Korean Cauliflower',
-    description:
-      'The Korean treatment on crispy fried cauliflower for our vegetarian friends.',
-    punchline: 'Proof vegetables can, in fact, slap.',
+      'Crispy fried cauliflower bites, slaw, pickles, and your choice of sauce.',
+    punchline: 'The veggie main.',
     veg: true,
-    imageSrc: '/instagram/2025-09-29_06-27-53_DPLQnfQEo_M.jpg',
-    imageAlt: 'Crispy fried cauliflower with Korean-style gochujang sauce, Kewpie mayo, sesame, and scallions',
+    imageAlt: 'Crispy fried cauliflower bites with slaw, pickles, and sauce',
   },
 ]
 
@@ -71,11 +54,5 @@ export const sides: Side[] = [
     description: 'Crinkle-cut, chicken salt, straight from the fryer.',
     imageSrc: '/fries.avif',
     imageAlt: 'A hand reaching into a box of golden french fries',
-  },
-  {
-    name: 'Cookies',
-    description: "Brown butter, Whittaker's chocolate chunks, baked fresh.",
-    imageSrc: '/instagram/2025-08-11_06-32-17_DNNGyjXyZoY_5.jpg',
-    imageAlt: "Brown butter Whittaker's chocolate chip cookies on a cooling rack",
   },
 ]

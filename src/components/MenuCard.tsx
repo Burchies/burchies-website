@@ -36,13 +36,13 @@ export function MenuCard({ name, description, punchline, price, imageSrc, imageA
         className="group relative bg-bone rounded-sm overflow-hidden border border-charcoal/10 shadow-sm hover:shadow-lg hover:border-ember/40 transition-shadow duration-300 flex flex-col w-full text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-ember focus-visible:outline-offset-2"
       >
         {imageSrc && (
-          <div className="relative h-44 w-full overflow-hidden bg-cream">
+          <div className="relative aspect-[3/4] w-full overflow-hidden bg-cream">
             <Image
               src={imageSrc}
               alt={imageAlt ?? name}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+              className="object-contain transition-transform duration-500"
             />
             <span
               aria-hidden
@@ -97,13 +97,13 @@ export function MenuCard({ name, description, punchline, price, imageSrc, imageA
                 onClick={(e) => e.stopPropagation()}
               >
                 {imageSrc && (
-                  <div className="relative aspect-[4/3] bg-bone">
+                  <div className="relative aspect-[3/4] bg-bone">
                     <Image
                       src={imageSrc}
                       alt={imageAlt ?? name}
                       fill
                       sizes="(max-width: 768px) 100vw, 576px"
-                      className="object-cover"
+                      className="object-contain"
                     />
                   </div>
                 )}

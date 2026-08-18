@@ -19,7 +19,6 @@ const marqueeItems = [
   'Juicy',
   'Double-fried',
   '24-hour marinade',
-  'Five sauces',
   'Since 2025',
 ]
 

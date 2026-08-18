@@ -19,7 +19,6 @@ const marqueeItems = [
   'Juicy',
   'Double-fried',
   '24-hour buttermilk marinade',
-  'Since 2025',
 ]
 
 export default function Home() {

@@ -10,14 +10,14 @@ export function StoryBlock() {
             The part where we tell you who we are
           </p>
           <h2 className="font-display text-4xl md:text-6xl font-bold leading-[0.95] tracking-tight text-charcoal">
-            One truck, 24-hour <em className="font-editorial italic text-ember not-italic">marinade,</em> zero shortcuts.
+            One truck, 24-hour <em className="font-editorial italic text-ember not-italic">buttermilk marinade,</em> zero shortcuts.
           </h2>
           <div className="mt-8 space-y-5 text-charcoal/80 text-base md:text-lg leading-relaxed">
             <p>
               Burchie&rsquo;s started in May 2025 with a trailer, a recipe, and a stubborn belief that fried chicken should be done properly — not rushed, not reheated, not just a side.
             </p>
             <p>
-              Every bird gets marinated for 24 hours, then double-fried until the crust cracks when you look at it. Fried cauliflower too, because our vegetarian friends deserve better than iceberg lettuce.
+              Every bird gets a 24-hour buttermilk marinade, then double-fried until the crust cracks when you look at it. Fried cauliflower too, because our vegetarian friends deserve better than iceberg lettuce.
             </p>
             <p>
               You&rsquo;ll find us parked up at Auckland markets, breweries, and pubs most nights of the week. Bring a picnic blanket, an appetite, and maybe a mate — the queue moves fast.

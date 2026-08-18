@@ -63,7 +63,7 @@ export function Hero() {
             transition={{ duration: 0.6, ease: 'easeOut', delay: 1.3 }}
             className="mt-8 md:mt-10 text-base md:text-xl max-w-xl text-cream/85 leading-relaxed"
           >
-            Five sauces. One truck. Wherever the queue goes.
+            Fried fresh. One truck. Wherever the queue goes.
           </motion.p>
 
           <motion.div

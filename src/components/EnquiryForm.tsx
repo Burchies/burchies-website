@@ -92,7 +92,7 @@ export function EnquiryForm() {
           Got it.
         </h3>
         <p className="text-base text-charcoal/70 max-w-md leading-relaxed">
-          Thomas will swing back to you soon — probably after the lunch rush. Check
+          Burchie will swing back to you soon — probably after the lunch rush. Check
           your inbox (and the spam folder, just in case).
         </p>
       </div>

@@ -13,7 +13,7 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/instagram/2026-02-11_07-00-20_DUm8RCHj8Qv_2.jpg"
-          alt="Thomas standing beside the red-and-white Burchie's Fried Chicken trailer"
+          alt="Burchie standing beside the red-and-white Burchie's Fried Chicken trailer"
           fill
           sizes="100vw"
           className="object-cover object-[30%_30%] md:object-[70%_42%]"

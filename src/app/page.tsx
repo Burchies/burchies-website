@@ -18,7 +18,7 @@ const marqueeItems = [
   'Crispy',
   'Juicy',
   'Double-fried',
-  '24-hour marinade',
+  '24-hour buttermilk marinade',
   'Since 2025',
 ]
 

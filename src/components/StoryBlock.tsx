@@ -24,14 +24,14 @@ export function StoryBlock() {
             </p>
           </div>
           <p className="mt-8 font-editorial italic text-amber text-base">
-            — Thomas, owner
+            — Burchie, owner
           </p>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
           <PhotoTile
             src="/instagram/2025-06-17_01-24-32_DK-72e9yo2w_5.jpg"
-            alt="Thomas lying on the ground in front of the newly-wrapped Burchie's truck"
+            alt="Burchie lying on the ground in front of the newly-wrapped Burchie's truck"
             sizes="(max-width: 768px) 100vw, 50vw"
             className="w-full aspect-[4/5]"
           />

@@ -13,7 +13,7 @@ export interface ScheduleSlot {
 const byName = Object.fromEntries(venues.map((v) => [v.name, v]))
 
 // These are typical stops sourced from recent Instagram posts. Confirm the
-// current lineup with Thomas before treating them as a guaranteed schedule.
+// current lineup with Burchie before treating them as a guaranteed schedule.
 export const schedule: ScheduleSlot[] = [
   {
     day: 'Thu',

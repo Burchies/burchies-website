@@ -6,7 +6,7 @@ const cards = [
     label: 'Instagram',
     href: 'https://www.instagram.com/burchies.fried.chicken/',
     title: 'Follow the chaos',
-    body: '@burchies.fried.chicken — schedule updates, new sauces, and whatever Thomas posts at 11pm.',
+    body: '@burchies.fried.chicken — schedule updates, new sauces, and whatever Burchie posts at 11pm.',
     cta: 'Say hi',
     imageSrc: '/instagram/2025-06-01_06-17-41_DKWQrl6PD8D.jpg',
     imageAlt: "Burchie's Thai-style fried chicken",
@@ -27,11 +27,11 @@ const cards = [
   {
     label: 'Twitch',
     href: 'https://twitch.tv/burchietv',
-    title: 'Watch Thomas cook',
+    title: 'Watch Burchie cook',
     body: 'twitch.tv/burchietv — behind the fryer, prep chats, the occasional disaster.',
     cta: 'Tune in',
     imageSrc: '/instagram/2026-03-30_02-29-00_DWfaTdwjwzs.jpg',
-    imageAlt: 'Latest Burchie\u2019s reel — Thomas at the truck',
+    imageAlt: 'Latest Burchie\u2019s reel — Burchie at the truck',
     badgeClass: 'text-white bg-[#9146FF]',
   },
 ]

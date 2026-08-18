@@ -76,7 +76,7 @@ export function Hero() {
               href="/#where"
               className="text-[11px] tracking-[0.2em] uppercase px-7 py-4 bg-ember text-cream rounded-full relative overflow-hidden btn-shimmer hover:scale-[1.02] transition-transform duration-200 font-semibold text-center"
             >
-              See this week&rsquo;s stops
+              See our next stop
             </Link>
             <Link
               href="/catering"

@@ -71,7 +71,7 @@ export default function CateringPage() {
               </h1>
               <p className="mt-6 text-lg md:text-xl text-charcoal/80 max-w-xl leading-relaxed">
                 Weddings, corporate lunches, birthdays, private parties — we roll the truck
-                up and take care of dinner. Tell us the details below and Thomas will get back
+                up and take care of dinner. Tell us the details below and Burchie will get back
                 to you, probably within a day.
               </p>
             </AnimatedSection>
@@ -80,7 +80,7 @@ export default function CateringPage() {
               <div className="grid grid-cols-2 gap-2 md:gap-3 max-w-md md:max-w-none md:ml-auto">
                 <PhotoTile
                   src="/instagram/2026-02-11_07-00-20_DUm8RCHj8Qv_2.jpg"
-                  alt="Thomas standing with the Burchie's truck on a clear day"
+                  alt="Burchie standing with the Burchie's truck on a clear day"
                   sizes="(max-width: 768px) 100vw, 45vw"
                   priority
                   className="col-span-2 aspect-[5/4]"

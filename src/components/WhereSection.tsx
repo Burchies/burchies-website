@@ -6,7 +6,7 @@ export function WhereSection() {
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <p className="text-[11px] tracking-widest uppercase text-ember font-semibold mb-3">
-            Where to find us
+            Our next stop
           </p>
           <h2 className="font-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight text-charcoal max-w-3xl">
             The Beerspot{' '}

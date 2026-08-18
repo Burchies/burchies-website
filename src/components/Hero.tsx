@@ -45,7 +45,7 @@ export function Hero() {
             className="text-[11px] md:text-xs tracking-[0.28em] text-amber uppercase font-semibold mb-5 md:mb-6 flex items-center gap-3"
           >
             <span className="inline-block w-8 h-px bg-amber" />
-            Auckland · Since May 2025
+            Auckland · Since July 2025
           </motion.p>
 
           <h1 className="font-display text-[clamp(2.75rem,8vw,7.5rem)] leading-[0.9] font-bold tracking-tight text-cream">

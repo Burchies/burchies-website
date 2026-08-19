@@ -1,12 +1,10 @@
 'use client'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { AnimatedWords } from './AnimatedWords'
 
 export function Hero() {
-  const reduce = useReducedMotion()
-
   return (
     <section className="relative min-h-[100svh] overflow-hidden">
       <div className="absolute inset-0 z-0 bg-charcoal">
@@ -36,16 +34,6 @@ export function Hero() {
 
       <div className="relative z-10 min-h-[100svh] flex flex-col justify-end md:justify-center px-6 md:px-12 pt-32 pb-16 md:pb-24">
         <div className="max-w-6xl w-full mx-auto">
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="text-[11px] md:text-xs tracking-[0.28em] text-amber uppercase font-semibold mb-5 md:mb-6 flex items-center gap-3"
-          >
-            <span className="inline-block w-8 h-px bg-amber" />
-            Auckland · Since July 2025
-          </motion.p>
-
           <h1 className="font-display text-[clamp(2.75rem,8vw,7.5rem)] leading-[0.9] font-bold tracking-tight text-cream">
             <AnimatedWords text="Fried chicken," as="span" className="block" />
             <AnimatedWords
@@ -55,17 +43,8 @@ export function Hero() {
             />
           </h1>
 
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 1.3 }}
-            className="mt-8 md:mt-10 text-base md:text-xl max-w-xl text-cream/85 leading-relaxed"
-          >
-            Fried fresh. One truck. Wherever the queue goes.
-          </motion.p>
-
           <motion.div
-            initial={reduce ? false : { opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 1.5 }}
             className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-3"

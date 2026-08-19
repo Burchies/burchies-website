@@ -32,9 +32,6 @@ export function StoryBlock() {
             sizes="(max-width: 768px) 100vw, 50vw"
             className="w-full aspect-[4/5]"
           />
-          <p className="mt-3 text-[11px] tracking-widest uppercase text-charcoal/50">
-            Truck wrap reveal · June 2025
-          </p>
         </AnimatedSection>
       </div>
     </section>

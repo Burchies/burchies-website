@@ -6,24 +6,28 @@ const foodImages = [
     alt: "Burchie's crispy fried chicken with slaw, pickles, and dipping sauce",
     label: 'fried chicken',
     position: 'object-center',
+    lighting: 'brightness(1.03) contrast(1.08) saturate(1.06)',
   },
   {
     src: '/food/hero-sandwich.jpg',
     alt: "Burchie's crispy fried chicken sandwich with slaw, pickles, and house sauce",
     label: 'sandwich',
     position: 'object-center',
+    lighting: 'brightness(1.04) contrast(1.06) saturate(1.04)',
   },
   {
     src: '/food/crispy-chicken.jpg',
     alt: "Burchie's crispy fried cauliflower with slaw, pickles, and dipping sauce",
     label: 'fried cauliflower',
     position: 'object-center',
+    lighting: 'brightness(1.02) contrast(1.08) saturate(1.05)',
   },
   {
     src: '/food/loaded-chicken.jpg',
     alt: "Burchie's loaded fries with fried chicken, pickles, and house sauce",
     label: 'loaded fries',
     position: 'object-[58%_68%]',
+    lighting: 'brightness(0.96) contrast(1.08) saturate(1.03)',
   },
 ]
 
@@ -57,6 +61,7 @@ export function TopFoodStrip() {
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
                   className={`object-cover ${image.position}`}
+                  style={{ filter: image.lighting }}
                 />
               </div>
               <figcaption className="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-charcoal md:mt-4">

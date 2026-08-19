@@ -70,30 +70,28 @@ export default function CateringPage() {
                 Feeding a <em className="font-editorial italic text-ember not-italic">crowd?</em>
               </h1>
               <p className="mt-6 text-lg md:text-xl text-charcoal/80 max-w-xl leading-relaxed">
-                Weddings, corporate lunches, birthdays, private parties — we roll the truck
-                up and take care of dinner. Tell us the details below and Burchie will get back
-                to you, probably within a day.
+                Weddings, corporate lunches, birthdays, private parties — we roll the trailer up and take care of everything. Tell us the details below and Burchie will get back to you asap
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.15}>
               <div className="grid grid-cols-2 gap-2 md:gap-3 max-w-md md:max-w-none md:ml-auto">
                 <PhotoTile
-                  src="/instagram/2026-02-11_07-00-20_DUm8RCHj8Qv_2.jpg"
-                  alt="Burchie standing with the Burchie's truck on a clear day"
+                  src="/catering/trailer-event.jpg"
+                  alt="People visiting the Burchie's food trailer"
                   sizes="(max-width: 768px) 100vw, 45vw"
                   priority
                   className="col-span-2 aspect-[5/4]"
                 />
                 <PhotoTile
-                  src="/instagram/2026-01-12_07-30-10_DTZv1R-D8lH_1.jpg"
-                  alt="Korean-style fried chicken with peanuts, coriander and gochujang"
+                  src="/catering/trailer-event.jpg"
+                  alt="People visiting the Burchie's food trailer"
                   sizes="(max-width: 768px) 50vw, 22vw"
                   className="aspect-[3/4] md:aspect-square"
                 />
                 <PhotoTile
-                  src="/instagram/2026-02-11_07-00-20_DUm8RCHj8Qv_4.jpg"
-                  alt="Two catering trays loaded with American, Korean, and Mexican fried chicken plus rainbow slaw"
+                  src="/catering/trailer-event.jpg"
+                  alt="People visiting the Burchie's food trailer"
                   sizes="(max-width: 768px) 50vw, 22vw"
                   className="aspect-[3/4] md:aspect-square"
                 />

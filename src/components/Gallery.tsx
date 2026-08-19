@@ -82,7 +82,7 @@ export function Gallery({
               <button
                 key={img.src}
                 type="button"
-                className="reveal-mobile mb-3 break-inside-avoid cursor-pointer overflow-hidden rounded-sm bg-charcoal block w-full"
+                className="mb-3 break-inside-avoid cursor-pointer overflow-hidden rounded-sm bg-charcoal block w-full"
                 onClick={() => setLightbox(i)}
                 aria-label={'Open ' + img.alt}
                 aria-haspopup="dialog"

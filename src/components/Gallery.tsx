@@ -64,7 +64,7 @@ export function Gallery({
           {eyebrow && (
             <p className="text-[11px] tracking-widest uppercase text-amber font-semibold mb-3">{eyebrow}</p>
           )}
-          <h2 className="font-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight">
+          <h2 className="font-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight text-ember">
             {heading}
             {highlight && (
               <>

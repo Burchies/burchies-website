@@ -19,9 +19,9 @@ interface Props {
 
 export function Gallery({
   images,
-  eyebrow = 'The feed',
-  heading = 'Chicken',
-  highlight = 'for your feed.',
+  eyebrow = '',
+  heading = 'Our gallery',
+  highlight = '',
 }: Props) {
   const [lightbox, setLightbox] = useState<number | null>(null)
   const [mounted, setMounted] = useState(false)
@@ -61,10 +61,17 @@ export function Gallery({
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
         >
-          <p className="text-[11px] tracking-widest uppercase text-amber font-semibold mb-3">{eyebrow}</p>
+          {eyebrow && (
+            <p className="text-[11px] tracking-widest uppercase text-amber font-semibold mb-3">{eyebrow}</p>
+          )}
           <h2 className="font-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight">
-            {heading}{' '}
-            <em className="font-editorial italic text-amber not-italic">{highlight}</em>
+            {heading}
+            {highlight && (
+              <>
+                {' '}
+                <em className="font-editorial italic text-amber not-italic">{highlight}</em>
+              </>
+            )}
           </h2>
         </motion.div>
 

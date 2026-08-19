@@ -12,14 +12,14 @@ export function MenuGrid() {
         </AnimatedSection>
 
         <AnimatedSection delay={0.15}>
-          <div className="mt-10 md:mt-14 mx-auto max-w-[760px]">
+          <div className="mt-10 md:mt-14 mx-auto max-w-[760px] overflow-hidden">
             <Image
               src="/menu/burchies-menu.webp"
               alt="Burchie’s menu with mains, sides, and sauces"
               width={2670}
               height={4412}
               sizes="(max-width: 768px) calc(100vw - 3rem), 760px"
-              className="w-full h-auto"
+              className="w-full h-auto scale-[1.014]"
             />
           </div>
         </AnimatedSection>

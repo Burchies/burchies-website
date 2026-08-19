@@ -75,8 +75,9 @@ export function Gallery({
           </h2>
         </motion.div>
 
-        <div className="mt-14 columns-2 md:columns-3 lg:columns-4 gap-3">
-          {images.map((img, i) => (
+        {images.length > 0 && (
+          <div className="mt-14 columns-2 md:columns-3 lg:columns-4 gap-3">
+            {images.map((img, i) => (
             <button
               key={img.src}
               type="button"
@@ -97,8 +98,9 @@ export function Gallery({
                 />
               </div>
             </button>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {mounted && createPortal(

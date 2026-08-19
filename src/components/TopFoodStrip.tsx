@@ -2,32 +2,28 @@ import Image from 'next/image'
 
 const foodImages = [
   {
-    src: '/food/chicken-and-slaws.jpg',
-    alt: "Burchie's crispy fried chicken with slaw, pickles, and dipping sauce",
+    src: '/instagram/2026-02-11_07-00-20_DUm8RCHj8Qv_2.jpg',
+    alt: "Burchie's golden crispy fried chicken",
     label: 'fried chicken',
     position: 'object-center',
-    lighting: 'brightness(1.03) contrast(1.08) saturate(1.06)',
   },
   {
-    src: '/food/hero-sandwich.jpg',
-    alt: "Burchie's crispy fried chicken sandwich with slaw, pickles, and house sauce",
+    src: '/instagram/2025-06-05_23-05-07_DKiXJr7hSPL.jpg',
+    alt: "Burchie's crispy fried chicken sandwich",
     label: 'sandwich',
     position: 'object-center',
-    lighting: 'brightness(1.04) contrast(1.06) saturate(1.04)',
   },
   {
-    src: '/food/crispy-chicken.jpg',
-    alt: "Burchie's crispy fried cauliflower with slaw, pickles, and dipping sauce",
+    src: '/instagram/2025-07-08_23-06-21_DL3VhpgBdEo_5.jpg',
+    alt: "Burchie's Korean-style fried cauliflower",
     label: 'fried cauliflower',
     position: 'object-center',
-    lighting: 'brightness(1.02) contrast(1.08) saturate(1.05)',
   },
   {
-    src: '/food/loaded-chicken.jpg',
-    alt: "Burchie's loaded fries with fried chicken, pickles, and house sauce",
+    src: '/instagram/2025-07-17_03-54-25_DMMc2gBv-n3.jpg',
+    alt: "Burchie's Korean-style loaded fries",
     label: 'loaded fries',
-    position: 'object-[58%_68%]',
-    lighting: 'brightness(0.96) contrast(1.08) saturate(1.03)',
+    position: 'object-center',
   },
 ]
 
@@ -61,7 +57,6 @@ export function TopFoodStrip() {
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
                   className={`object-cover ${image.position}`}
-                  style={{ filter: image.lighting }}
                 />
               </div>
               <figcaption className="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-charcoal md:mt-4">

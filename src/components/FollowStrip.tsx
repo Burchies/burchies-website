@@ -20,8 +20,8 @@ const cards = [
     title: 'Like the page',
     body: 'Stay in the loop on markets, pop-ups, and catering openings — plus the occasional chicken tier list.',
     cta: 'Say g\u2019day',
-    imageSrc: '/instagram/2025-07-08_23-06-21_DL3VhpgBdEo_1.jpg',
-    imageAlt: 'Crowd at the launch party in Sylvan Park',
+    imageSrc: '/gallery/crispy-chicken.jpg',
+    imageAlt: 'Crispy fried chicken bites',
     badgeClass: 'text-white bg-[#1877F2]',
   },
   {

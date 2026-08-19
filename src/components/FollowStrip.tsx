@@ -8,7 +8,7 @@ const cards = [
     title: 'Follow us',
     body: '@burchies.fried.chicken - schedule updates, new menu items and other goodies.',
     cta: 'Say g’day',
-    imageSrc: '/socials/instagram-chicken.jpg',
+    imageSrc: '/socials/instagram-chicken-centred.jpg',
     imageAlt: 'Burchie’s fried chicken with sauce and spring onion',
     // Instagram's signature warm→pink→purple gradient (approximated).
     badgeClass:
@@ -58,7 +58,7 @@ export function FollowStrip() {
                     alt={c.imageAlt}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.04]"
                   />
                   <span
                     className={`absolute top-3 left-3 inline-flex items-center text-[10px] tracking-widest uppercase font-semibold px-2.5 py-1 rounded-full shadow-sm ${c.badgeClass}`}

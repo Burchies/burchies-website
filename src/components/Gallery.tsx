@@ -8,6 +8,7 @@ import { useDialogFocus } from '@/lib/useDialogFocus'
 export interface GalleryImage {
   src: string
   alt: string
+  unoptimized?: boolean
 }
 
 interface Props {
@@ -76,12 +77,12 @@ export function Gallery({
         </motion.div>
 
         {images.length > 0 && (
-          <div className="mt-14 columns-2 md:columns-3 lg:columns-4 gap-0">
+          <div className="mt-14 columns-2 md:columns-3 lg:columns-4 gap-3">
             {images.map((img, i) => (
               <button
                 key={img.src}
                 type="button"
-                className="reveal-mobile break-inside-avoid cursor-pointer overflow-hidden bg-charcoal block w-full"
+                className="reveal-mobile mb-3 break-inside-avoid cursor-pointer overflow-hidden rounded-sm bg-charcoal block w-full"
                 onClick={() => setLightbox(i)}
                 aria-label={'Open ' + img.alt}
                 aria-haspopup="dialog"
@@ -93,6 +94,7 @@ export function Gallery({
                     width={800}
                     height={1000}
                     loading="lazy"
+                    unoptimized={img.unoptimized}
                     className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
@@ -132,6 +134,7 @@ export function Gallery({
                   alt={images[lightbox].alt}
                   width={1400}
                   height={1800}
+                  unoptimized={images[lightbox].unoptimized}
                   className="max-h-[85vh] w-auto object-contain"
                 />
               </motion.div>

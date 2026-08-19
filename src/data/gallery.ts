@@ -2,10 +2,10 @@ import type { GalleryImage } from '@/components/Gallery'
 
 export const galleryImages: GalleryImage[] = [
   { src: '/gallery/IMG_5508.jpg', alt: 'Burchie’s team beside the trailer' },
-  { src: '/gallery/truck-kitchen-fixed.jpg', alt: 'Burchie working inside the food trailer' },
+  { src: '/gallery/burchie-kitchen-v2.jpg', alt: 'Burchie working inside the food trailer', unoptimized: true },
   { src: '/gallery/2025-07-08_23-06-21_DL3VhpgBdEo_5.avif', alt: 'Korean-style fried cauliflower' },
   { src: '/gallery/IMG_5517.jpg', alt: 'Crowd at a Burchie’s event' },
-  { src: '/gallery/chocolate-chip-cookies-fixed.jpg', alt: 'Fresh chocolate chip cookies' },
+  { src: '/gallery/chocolate-cookies-v2.jpg', alt: 'Fresh chocolate chip cookies', unoptimized: true },
   { src: '/gallery/IMG_5140.jpg', alt: 'Burchie’s fried chicken platter and a Beer Spot beer' },
   { src: '/gallery/IMG_5255.jpg', alt: 'Burchie’s trailer beneath a tree' },
   { src: '/gallery/2025-05-26_09-06-07_DKHHL9CPi2i.avif', alt: 'Burchie’s first uniform reveal' },

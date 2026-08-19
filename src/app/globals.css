@@ -74,20 +74,23 @@
   animation: shimmer 0.7s ease forwards;
 }
 
-/* Infinite marquee — component sets --marquee-distance to the measured px
-   width of one content group. Pre-hydration fallback is -50% of the track
-   (which is two groups wide), so paint still looks right before JS kicks in. */
+/* Infinite marquee — the component measures one content group and renders
+   enough copies to fill the viewport through every loop. Animation begins
+   only after that measurement, so no blank hand-off is ever visible. */
 @keyframes marquee {
   0%   { transform: translate3d(0, 0, 0); }
   100% { transform: translate3d(calc(-1 * var(--marquee-distance, 50%)), 0, 0); }
 }
 .marquee-track {
+  animation: none;
+}
+.marquee-track--ready {
   animation: marquee 40s linear infinite;
 }
 /* Mobile text is smaller → same -50% travel covers fewer px → feels slow.
    Shorten the duration below md so the perceived speed matches desktop. */
 @media (max-width: 767px) {
-  .marquee-track {
+  .marquee-track--ready {
     animation-duration: 16s;
   }
 }

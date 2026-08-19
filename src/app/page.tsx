@@ -41,9 +41,9 @@ export default function Home() {
         <div aria-hidden className="checker-band" />
         <CtaStrip
           heading="Feeding a crowd?"
-          highlight="Have us pull up"
+          highlight="Have us pull up."
           subtitle="Weddings, corporates, birthdays, parties — we cater the lot."
-          buttonText="Book the truck"
+          buttonText="Book an event"
           href="/catering"
         />
         <div aria-hidden className="checker-band" />

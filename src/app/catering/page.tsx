@@ -46,7 +46,7 @@ const perks = [
   {
     title: 'Vegetarian and vegan friendly.',
     body:
-      'We don't just serve chicken, we serve great vegetarian and vegan options too.',
+      "We don't just serve chicken, we serve great vegetarian and vegan options too.",
   },
   {
     title: 'Auckland-wide, mostly.',

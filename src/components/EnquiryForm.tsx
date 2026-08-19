@@ -268,7 +268,7 @@ export function EnquiryForm() {
 
       <div>
         <label htmlFor="f-message" className={labelClass}>
-          Tell us the vibe{' '}
+          Any additional information{' '}
           <span className="normal-case tracking-normal text-charcoal/40 font-normal">
             (optional)
           </span>

@@ -12,9 +12,9 @@ const foodImages = [
     position: 'object-center',
   },
   {
-    src: '/food/chicken-and-slaws.jpg',
-    alt: "Burchie's fried chicken alongside crunchy slaw and dipping sauce",
-    position: 'object-[50%_62%]',
+    src: '/food/crispy-chicken.jpg',
+    alt: "Burchie's crispy fried cauliflower with slaw, pickles, and dipping sauce",
+    position: 'object-center',
   },
 ]
 

@@ -23,10 +23,9 @@ export function CtaStrip({
           <h2 className="font-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight">
             {heading}
             {highlight && (
-              <>
-                {' '}
+              <span className="block whitespace-nowrap">
                 <em className="font-editorial italic text-amber not-italic">{highlight}</em>
-              </>
+              </span>
             )}
           </h2>
         </AnimatedSection>

@@ -7,8 +7,8 @@ const foodImages = [
     position: 'object-[58%_68%]',
   },
   {
-    src: '/food/crispy-chicken.jpg',
-    alt: "Burchie's crispy fried chicken with slaw, pickles, and dipping sauce",
+    src: '/food/hero-sandwich.jpg',
+    alt: "Burchie's crispy fried chicken sandwich with slaw, pickles, and house sauce",
     position: 'object-center',
   },
   {

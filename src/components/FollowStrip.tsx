@@ -7,9 +7,9 @@ const cards = [
     href: 'https://www.instagram.com/burchies.fried.chicken/',
     title: 'Follow us',
     body: '@burchies.fried.chicken - schedule updates, new menu items and other goodies.',
-    cta: 'Say g\u2019day',
-    imageSrc: '/instagram/2026-03-30_02-29-00_DWfaTdwjwzs.jpg',
-    imageAlt: 'Burchie at the truck',
+    cta: 'Say g’day',
+    imageSrc: '/socials/instagram-chicken.jpg',
+    imageAlt: 'Burchie’s fried chicken with sauce and spring onion',
     // Instagram's signature warm→pink→purple gradient (approximated).
     badgeClass:
       'text-white bg-[linear-gradient(45deg,#F58529_0%,#DD2A7B_50%,#8134AF_100%)]',
@@ -28,7 +28,7 @@ const cards = [
     label: 'Twitch',
     href: 'https://twitch.tv/burchietv',
     title: 'Watch Burchie cook',
-    body: 'twitch.tv/burchietv - live from the food truck! watch us cook, serve customers, run the daily chaos, play games, and get into plenty of shenanigans.',
+    body: 'twitch.tv/burchietv - live from the food truck! watch us cook, serve customers, run the daily chaos, play games, and other shenanigans.',
     cta: 'Tune in',
     imageSrc: '/socials/twitch-table.jpg',
     imageAlt: 'Friends at an outdoor table',

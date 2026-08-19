@@ -31,8 +31,6 @@ export function Footer() {
           </div>
           <p className="text-xs text-cream/70 mt-5 leading-relaxed">
             Made with 🔥 in Auckland, Aotearoa.
-            <br />
-            Complaint? never had one (but if you do email us)
           </p>
         </div>
 

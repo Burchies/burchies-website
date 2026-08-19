@@ -9,7 +9,7 @@ export function WhereSection() {
     <section id="where" className="relative px-6 md:px-12 py-16 md:py-24 bg-cream">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
         <AnimatedSection>
-          <p className="font-display text-4xl md:text-6xl font-bold leading-[0.95] tracking-tight text-ember mb-5">
+          <p className="font-display text-[1.575rem] md:text-[2.625rem] font-bold leading-[0.95] tracking-tight text-ember mb-5">
             Our next stop
           </p>
           <h2 className="font-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight text-charcoal">

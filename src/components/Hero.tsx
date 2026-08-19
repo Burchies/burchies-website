@@ -35,9 +35,9 @@ export function Hero() {
       <div className="relative z-10 min-h-[100svh] flex flex-col justify-end md:justify-center px-6 md:px-12 pt-32 pb-16 md:pb-24">
         <div className="max-w-6xl w-full mx-auto">
           <h1 className="font-display text-[clamp(2.75rem,8vw,7.5rem)] leading-[0.9] font-bold tracking-tight text-cream">
-            <AnimatedWords text="Fried chicken," as="span" className="block" />
+            <AnimatedWords text="For the love of" as="span" className="block" />
             <AnimatedWords
-              text="perfected"
+              text="Fried chicken"
               as="span"
               className="block font-editorial italic font-semibold text-amber"
             />

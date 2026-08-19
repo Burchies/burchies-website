@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion, useReducedMotion } from 'framer-motion'
 import { AnimatedWords } from './AnimatedWords'
+import { HERO_BLUR } from '@/lib/blur'
 
 export function Hero() {
   const reduce = useReducedMotion()
@@ -11,13 +12,15 @@ export function Hero() {
     <section className="relative min-h-[100svh] overflow-hidden">
       <div className="absolute inset-0 z-0 bg-charcoal">
         <Image
-          src="/food/chicken-and-slaws.jpg"
-          alt="Burchie's crispy fried chicken with slaw, pickles, and dipping sauce"
+          src="/instagram/2026-02-11_07-00-20_DUm8RCHj8Qv_2.jpg"
+          alt="Burchie standing beside the red-and-white Burchie's Fried Chicken trailer"
           fill
           sizes="100vw"
-          className="object-contain object-center"
+          className="object-cover object-[30%_30%] md:object-[70%_42%]"
           priority
           fetchPriority="high"
+          placeholder="blur"
+          blurDataURL={HERO_BLUR}
         />
 
         <div

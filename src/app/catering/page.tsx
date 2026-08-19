@@ -77,7 +77,7 @@ export default function CateringPage() {
             <AnimatedSection delay={0.15}>
               <div className="max-w-md md:max-w-none md:ml-auto">
                 <PhotoTile
-                  src="/catering/trailer-event.jpg"
+                  src="/catering/trailer-event-v2.jpg"
                   alt="People visiting the Burchie’s food trailer"
                   sizes="(max-width: 768px) 100vw, 45vw"
                   priority

@@ -66,7 +66,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <span className="text-[10px] tracking-widest uppercase text-amber">Follow the chaos</span>
+          <span className="text-[10px] tracking-widest uppercase text-amber">Follow us</span>
           <a
             href="https://www.instagram.com/burchies.fried.chicken/"
             target="_blank"

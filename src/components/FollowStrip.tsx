@@ -5,7 +5,7 @@ const cards = [
   {
     label: 'Instagram',
     href: 'https://www.instagram.com/burchies.fried.chicken/',
-    title: 'Follow the chaos',
+    title: 'Follow us',
     body: '@burchies.fried.chicken — schedule updates, new sauces, and whatever Burchie posts at 11pm.',
     cta: 'Say g\u2019day',
     imageSrc: '/instagram/2025-06-01_06-17-41_DKWQrl6PD8D.jpg',

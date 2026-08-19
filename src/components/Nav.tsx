@@ -7,10 +7,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useDialogFocus } from '@/lib/useDialogFocus'
 
 const links = [
-  { href: '/#menu',     label: 'Menu' },
-  { href: '/#where',    label: 'Where' },
-  { href: '/#gallery',  label: 'Gallery' },
-  { href: '/catering',  label: 'Catering' },
+  { href: '/#menu', label: 'Our menu' },
+  { href: '/#where', label: 'Our next stop' },
+  { href: '/#gallery', label: 'Our gallery' },
+  { href: '/#socials', label: 'Our socials' },
+  { href: '/catering', label: 'Book an event' },
 ]
 
 export function Nav() {

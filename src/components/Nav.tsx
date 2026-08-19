@@ -11,7 +11,6 @@ const links = [
   { href: '/#where', label: 'Our next stop' },
   { href: '/#gallery', label: 'Our gallery' },
   { href: '/#socials', label: 'Our socials' },
-  { href: '/catering', label: 'Book an event' },
 ]
 
 export function Nav() {
@@ -91,10 +90,10 @@ export function Nav() {
             </Link>
           ))}
           <Link
-            href="/#where"
+            href="/catering"
             className="text-[11px] tracking-widest uppercase px-5 py-2.5 bg-ember text-cream rounded-sm relative overflow-hidden btn-shimmer hover:scale-[1.02] transition-transform duration-200 font-semibold"
           >
-            Find the truck
+            Book an event
           </Link>
         </nav>
 

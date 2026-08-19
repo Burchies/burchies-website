@@ -9,8 +9,8 @@ export function WhereSection() {
     <section id="where" className="relative px-6 md:px-12 py-16 md:py-24 bg-cream">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
         <AnimatedSection>
-          <p className="text-[11px] tracking-widest uppercase text-ember font-semibold mb-3">
-            Our next stop
+          <p className="font-display text-4xl md:text-6xl font-bold leading-[0.95] tracking-tight text-ember mb-5">
+            Our next spot
           </p>
           <h2 className="font-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight text-charcoal">
             The Beerspot{' '}

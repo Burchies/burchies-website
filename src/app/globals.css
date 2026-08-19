@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — fried chicken, done properly */
+  --color-cream:    #F5EFE4;   /* page bg — warm, textured */
+  --color-charcoal: #1C1917;   /* body text */
+  --color-ember:    #A41122;   /* HOT RED — logo, CTAs, full bg blocks */
+  --color-amber:    #E8A33D;   /* golden crust — eyebrows, full bg blocks */
+  --color-bone:     #EDE3D1;   /* subtle card/section alt */
+  --color-smoke:    #3A3633;   /* deep alt for gallery/hero overlays */
+  --color-pickle:   #6B8E3D;   /* tiny green pop — cauliflower/vegan */
+
+  /* Font families — CSS variables set by next/font/google in layout.tsx */
+  --font-display:   var(--font-bricolage), system-ui, sans-serif;
+  --font-editorial: var(--font-fraunces), Georgia, serif;
+  --font-body:      var(--font-dm-sans), sans-serif;
+  --font-mono:      var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  /* Spacing tokens */
+  --tracking-widest: 0.25em;
+  --tracking-wider:  0.18em;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-cream);
+    color: var(--color-charcoal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Subtle film-grain overlay — sits on top of solid colour blocks to kill banding
+   and add warmth. Apply with className="noise" on sections. */
+.noise {
+  position: relative;
+  isolation: isolate;
+}
+.noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Shimmer sweep on CTA buttons */
+@keyframes shimmer {
+  0%   { transform: translateX(-100%) skewX(-12deg); }
+  100% { transform: translateX(200%) skewX(-12deg); }
+}
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: translateX(-100%) skewX(-12deg);
+}
+.btn-shimmer:hover::after {
+  animation: shimmer 0.7s ease forwards;
+}
+
+/* Infinite marquee — the component measures one content group and renders
+   enough copies to fill the viewport through every loop. Animation begins
+   only after that measurement, so no blank hand-off is ever visible. */
+@keyframes marquee {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(calc(-1 * var(--marquee-distance, 50%)), 0, 0); }
+}
+.marquee-track {
+  animation: none;
+}
+.marquee-track--ready {
+  animation: marquee 40s linear infinite;
+}
+/* Mobile text is smaller → same -50% travel covers fewer px → feels slow.
+   Shorten the duration below md so the perceived speed matches desktop. */
+@media (max-width: 767px) {
+  .marquee-track--ready {
+    animation-duration: 16s;
+  }
+}
+
+/* Red/white race-flag checker — brand motif echoed from the printed menu.
+   Pure CSS conic-gradient, pixel-crisp at any size, zero image weight.
+   Always renders exactly 2 rows — height matches the tile for clean edges. */
+.checker-band {
+  width: 100%;
+  height: 2rem;                       /* 32px = exactly 2 rows */
+  background:
+    conic-gradient(
+      var(--color-ember) 0 25%,
+      var(--color-cream) 0 50%,
+      var(--color-ember) 0 75%,
+      var(--color-cream) 0
+    ) 0 0 / 2rem 2rem;                /* tile = 2x2 squares of 16px */
+}
+
+@media (min-width: 768px) {
+  .checker-band {
+    height: 2.5rem;                    /* 40px = exactly 2 rows */
+    background-size: 2.5rem 2.5rem;    /* tile = 2x2 squares of 20px */
+  }
+}
+
+/* Slow sway for the dancing hero flame SVG */
+@keyframes sway {
+  0%, 100% { transform: rotate(-6deg); }
+  50%      { transform: rotate(6deg); }
+}
+.sway {
+  transform-origin: bottom center;
+  animation: sway 3s ease-in-out infinite;
+}
+
+/* Mobile-only scroll-driven reveal. Zero-JS — browsers that don't support
+   animation-timeline just show the element fully (graceful fallback).
+   Scoped under (max-width: 767px) so desktop stays fast and minimal. */
+@media (max-width: 767px) {
+  @supports (animation-timeline: view()) {
+    @keyframes reveal-up {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal-mobile {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 25%;
+    }
+  }
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .sway,
+  .reveal-mobile {
+    animation: none !important;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

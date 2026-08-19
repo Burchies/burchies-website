@@ -109,10 +109,10 @@ export default function CateringPage() {
                 Slide into the DMs
               </p>
               <h2 className="font-display text-4xl md:text-5xl font-bold leading-[0.95] tracking-tight text-charcoal">
-                Book the truck.
+                Book the trailer.
               </h2>
               <p className="mt-3 text-sm text-charcoal/60">
-                Minimum 20 guests. We&rsquo;ll confirm availability within a day.
+                Minimum 30 guests. We&rsquo;ll confirm availability within a day.
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.15}>

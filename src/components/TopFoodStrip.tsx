@@ -42,7 +42,7 @@ export function TopFoodStrip() {
           </p>
           <h2
             id="our-food-heading"
-            className="mt-3 font-display text-5xl font-bold tracking-tight text-charcoal md:text-7xl"
+            className="mt-3 font-display text-5xl font-bold tracking-tight text-ember md:text-7xl"
           >
             Our food
           </h2>

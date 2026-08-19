@@ -75,25 +75,13 @@ export default function CateringPage() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.15}>
-              <div className="grid grid-cols-2 gap-2 md:gap-3 max-w-md md:max-w-none md:ml-auto">
+              <div className="max-w-md md:max-w-none md:ml-auto">
                 <PhotoTile
-                  src="/catering/trailer-event.jpg"
-                  alt="People visiting the Burchie's food trailer"
+                  src="/socials/instagram-chicken-centred.jpg"
+                  alt="Burchie’s fried chicken with sauce and spring onion"
                   sizes="(max-width: 768px) 100vw, 45vw"
                   priority
-                  className="col-span-2 aspect-[5/4]"
-                />
-                <PhotoTile
-                  src="/catering/trailer-event.jpg"
-                  alt="People visiting the Burchie's food trailer"
-                  sizes="(max-width: 768px) 50vw, 22vw"
-                  className="aspect-[3/4] md:aspect-square"
-                />
-                <PhotoTile
-                  src="/catering/trailer-event.jpg"
-                  alt="People visiting the Burchie's food trailer"
-                  sizes="(max-width: 768px) 50vw, 22vw"
-                  className="aspect-[3/4] md:aspect-square"
+                  className="aspect-[5/4]"
                 />
               </div>
             </AnimatedSection>

@@ -4,7 +4,6 @@ import {
   validateEnquiry,
   isValid,
   EVENT_TYPES,
-  VARIANT_OPTIONS,
   type CateringEnquiry,
   type EnquiryErrors,
 } from '@/lib/enquiry'
@@ -24,22 +23,12 @@ export function EnquiryForm() {
     eventType: '',
     guests: '',
     location: '',
-    variants: [],
     message: '',
     website: '',
   })
   const [errors, setErrors] = useState<EnquiryErrors>({})
   const [status, setStatus] = useState<Status>('idle')
   const hasErrors = Object.keys(errors).length > 0
-
-  function toggleVariant(value: string) {
-    setForm((f) => ({
-      ...f,
-      variants: f.variants.includes(value)
-        ? f.variants.filter((v) => v !== value)
-        : [...f.variants, value],
-    }))
-  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -245,7 +234,7 @@ export function EnquiryForm() {
             name="guests"
             type="number"
             inputMode="numeric"
-            min={20}
+            min={30}
             required
             className={inputClass}
             placeholder="Approx. headcount"
@@ -276,30 +265,6 @@ export function EnquiryForm() {
         />
         {errors.location && <p id={errorId('location')} className={errorClass}>{errors.location}</p>}
       </div>
-
-      <fieldset
-        id="f-variants"
-        tabIndex={-1}
-        aria-describedby={errors.variants ? errorId('variants') : undefined}
-      >
-        <legend className={labelClass}>Sauces you&rsquo;re after (pick one or all)</legend>
-        <div className="flex flex-wrap gap-2 mt-3">
-          {VARIANT_OPTIONS.map(({ value, label }) => (
-            <button
-              key={value}
-              type="button"
-              onClick={() => toggleVariant(value)}
-              aria-pressed={form.variants.includes(value)}
-              className={`text-xs tracking-wide uppercase px-4 py-2 rounded-sm border transition-all duration-200 ${form.variants.includes(value)
-                ? 'bg-ember text-cream border-ember'
-                : 'border-charcoal/20 text-charcoal/70 hover:border-ember'}`}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-        {errors.variants && <p id={errorId('variants')} className={errorClass}>{errors.variants}</p>}
-      </fieldset>
 
       <div>
         <label htmlFor="f-message" className={labelClass}>

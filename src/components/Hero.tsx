@@ -9,13 +9,13 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[100svh] overflow-hidden">
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 bg-charcoal">
         <Image
           src="/food/hero-sandwich.jpg"
           alt="Burchie's crispy fried chicken sandwich with slaw, pickles, and house sauce"
           fill
           sizes="100vw"
-          className="object-cover object-[52%_62%] md:object-[50%_62%]"
+          className="object-contain object-center"
           priority
           fetchPriority="high"
         />

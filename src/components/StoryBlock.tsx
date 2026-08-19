@@ -11,18 +11,15 @@ export function StoryBlock() {
           </h2>
           <div className="mt-8 space-y-5 text-charcoal/80 text-base md:text-lg leading-relaxed">
             <p>
-              Burchie&rsquo;s started in May 2025 with a trailer, a recipe, and a stubborn belief that fried chicken should be done properly — not rushed, not reheated, not just a side.
+              Burchie’s launched in July 2025 with a trailer, a dream, and an incurable addiction to fried chicken.
             </p>
             <p>
-              Every bird gets a 24-hour buttermilk marinade, then double-fried until the crust cracks when you look at it. Fried cauliflower too, because our vegetarian friends deserve better than iceberg lettuce.
+              What started as a craving for seriously good, crispy chicken quickly became a mission: bring bold flavours, proper sides, and good energy wherever we park up. For over a year, we’ve been serving up fried chicken made to hit the spot—while continually tweaking, tasting, and perfecting every recipe along the way.
             </p>
             <p>
-              You&rsquo;ll find us parked up at Auckland markets, breweries, and pubs most nights of the week. Bring a picnic blanket, an appetite, and maybe a mate — the queue moves fast.
+              We’re all about the crunch, the flavour, and the vibes. Whether you’re grabbing a quick feed, catching us at an event, or bringing your mates along, Burchie’s is here to make your day a little tastier.
             </p>
           </div>
-          <p className="mt-8 font-editorial italic text-amber text-base">
-            — Burchie, owner
-          </p>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>

@@ -11,7 +11,7 @@ export function Hero() {
     <section className="relative min-h-[100svh] overflow-hidden">
       <div className="absolute inset-0 z-0 bg-charcoal">
         <Image
-          src="/food/crispy-chicken.jpg"
+          src="/food/chicken-and-slaws.jpg"
           alt="Burchie's crispy fried chicken with slaw, pickles, and dipping sauce"
           fill
           sizes="100vw"

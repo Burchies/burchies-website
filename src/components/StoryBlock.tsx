@@ -14,10 +14,10 @@ export function StoryBlock() {
               Burchie’s launched in July 2025 with a trailer, a dream, and an incurable addiction to fried chicken.
             </p>
             <p>
-              What started as a craving for seriously good, crispy chicken quickly became a mission: bring bold flavours, proper sides, and good energy wherever we park up. For over a year, we’ve been serving up fried chicken made to hit the spot—while continually tweaking, tasting, and perfecting every recipe along the way.
+              Long before the trailer, I was making fried chicken for friends and family—testing recipes, chasing the perfect crunch, and feeding anyone who would volunteer as a taste tester. Their encouragement to take it beyond the kitchen is what turned a long-time passion into Burchie’s.
             </p>
             <p>
-              We’re all about the crunch, the flavour, and the vibes. Whether you’re grabbing a quick feed, catching us at an event, or bringing your mates along, Burchie’s is here to make your day a little tastier.
+              For over a year, we’ve been serving up delicious fried chicken, proper sides, and good vibes, while continually tweaking, tasting, and perfecting every recipe along the way.
             </p>
           </div>
         </AnimatedSection>

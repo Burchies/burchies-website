@@ -3,10 +3,11 @@ import Image from 'next/image'
 
 export function Footer() {
   const links = [
-    { href: '/#menu',    label: 'Menu' },
-    { href: '/#where',   label: 'Where' },
-    { href: '/#gallery', label: 'Gallery' },
-    { href: '/catering', label: 'Catering' },
+    { href: '/#menu', label: 'Our menu' },
+    { href: '/#where', label: 'Our next stop' },
+    { href: '/#gallery', label: 'Our gallery' },
+    { href: '/#socials', label: 'Our socials' },
+    { href: '/catering', label: 'Book an event' },
   ]
 
   return (

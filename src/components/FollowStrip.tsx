@@ -7,7 +7,7 @@ const cards = [
     href: 'https://www.instagram.com/burchies.fried.chicken/',
     title: 'Follow the chaos',
     body: '@burchies.fried.chicken — schedule updates, new sauces, and whatever Burchie posts at 11pm.',
-    cta: 'Say hi',
+    cta: 'Say g\u2019day',
     imageSrc: '/instagram/2025-06-01_06-17-41_DKWQrl6PD8D.jpg',
     imageAlt: "Burchie's Thai-style fried chicken",
     // Instagram's signature warm→pink→purple gradient (approximated).
@@ -38,7 +38,7 @@ const cards = [
 
 export function FollowStrip() {
   return (
-    <section className="px-6 md:px-12 py-14 md:py-16 bg-bone">
+    <section id="socials" className="px-6 md:px-12 py-14 md:py-16 bg-bone">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
         {cards.map((c, i) => (
           <AnimatedSection key={c.label} delay={i * 0.1}>

@@ -69,7 +69,7 @@ export default function CateringPage() {
                 Feeding a <em className="font-editorial italic text-ember not-italic">crowd?</em>
               </h1>
               <p className="mt-6 text-lg md:text-xl text-charcoal/80 max-w-xl leading-relaxed">
-                Weddings, corporate lunches, birthdays, private parties — we roll the trailer up and take care of everything. Tell us the details below and Burchie will get back to you asap
+                Weddings, corporate lunches, birthdays, private parties — we roll the trailer up and take care of everything. Tell us the details below and Burchie will get back to you asap.
               </p>
             </AnimatedSection>
 

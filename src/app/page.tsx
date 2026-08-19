@@ -19,7 +19,8 @@ const marqueeItems = [
   'Crispy',
   'Juicy',
   'Double-fried',
-  '24-hour buttermilk marinade',
+  'Made to order',
+  '24-hour buttermilk marinated',
 ]
 
 export default function Home() {

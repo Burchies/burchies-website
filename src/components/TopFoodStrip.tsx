@@ -32,9 +32,9 @@ export function TopFoodStrip() {
     <section
       id="food"
       aria-labelledby="our-food-heading"
-      className="bg-cream px-6 py-16 md:px-12 md:py-24"
+      className="bg-cream px-3 py-16 md:px-6 md:py-24"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-[1500px]">
         <div className="mb-10 md:mb-14">
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-ember">
             Made fresh, served hot

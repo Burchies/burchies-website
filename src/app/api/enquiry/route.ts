@@ -4,13 +4,11 @@ import {
   validateEnquiry,
   isValid,
   EVENT_TYPES,
-  VARIANT_OPTIONS,
   type CateringEnquiry,
 } from '@/lib/enquiry'
 
 const resend = new Resend(process.env.RESEND_API_KEY || 'placeholder')
 const allowedEventTypes = new Set<string>(EVENT_TYPES)
-const allowedVariants = new Set<string>(VARIANT_OPTIONS.map((variant) => variant.value))
 
 function esc(str: string): string {
   return String(str ?? '')
@@ -30,13 +28,6 @@ function parseEnquiry(value: unknown): CateringEnquiry | null {
 
   const raw = value as Record<string, unknown>
   const rawEventType = asString(raw.eventType)
-  const variants = Array.isArray(raw.variants)
-    ? raw.variants.filter(
-        (variant): variant is string =>
-          typeof variant === 'string' && allowedVariants.has(variant),
-      )
-    : []
-
   return {
     name: asString(raw.name),
     email: asString(raw.email),
@@ -47,7 +38,6 @@ function parseEnquiry(value: unknown): CateringEnquiry | null {
       : '',
     guests: asString(raw.guests),
     location: asString(raw.location),
-    variants,
     message: asString(raw.message),
     website: asString(raw.website),
   }
@@ -104,7 +94,6 @@ export async function POST(req: NextRequest) {
           <tr><td style="padding:4px 12px 4px 0;color:#555;">Event type</td><td>${esc(data.eventType)}</td></tr>
           <tr><td style="padding:4px 12px 4px 0;color:#555;">Guests</td><td>${esc(data.guests)}</td></tr>
           <tr><td style="padding:4px 12px 4px 0;color:#555;">Location</td><td>${esc(data.location)}</td></tr>
-          <tr><td style="padding:4px 12px 4px 0;color:#555;">Sauces</td><td>${data.variants.map(esc).join(', ') || '(none)'}</td></tr>
         </table>
         <h3 style="font-family:system-ui,sans-serif;margin-top:1.5em;margin-bottom:0.3em;">Message</h3>
         <p style="font-family:system-ui,sans-serif;white-space:pre-wrap;">${esc(data.message || '(none)')}</p>

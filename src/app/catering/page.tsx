@@ -3,7 +3,6 @@ import { Nav } from '@/components/Nav'
 import { Footer } from '@/components/Footer'
 import { AnimatedSection } from '@/components/AnimatedSection'
 import { EnquiryForm } from '@/components/EnquiryForm'
-import { PhotoTile } from '@/components/PhotoTile'
 
 const socialImage = '/instagram/2026-02-11_07-00-20_DUm8RCHj8Qv_2.jpg'
 
@@ -61,7 +60,7 @@ export default function CateringPage() {
       <Nav />
       <main className="pt-32 md:pt-40">
         <section className="px-6 md:px-12 pb-14 md:pb-20 bg-cream">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[1.05fr_1fr] gap-10 md:gap-14 items-center">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_0.85fr] gap-10 md:gap-16 items-center">
             <AnimatedSection>
               <p className="text-[11px] tracking-widest uppercase text-ember font-semibold mb-3">
                 Catering enquiries
@@ -74,13 +73,11 @@ export default function CateringPage() {
               </p>
             </AnimatedSection>
 
-            <div className="max-w-md md:max-w-none md:ml-auto">
-              <PhotoTile
+            <div className="relative w-full max-w-md md:max-w-[30rem] md:ml-auto aspect-[4/5] overflow-hidden rounded-sm shadow-md">
+              <img
                 src="/catering/trailer-event-v2.jpg"
                 alt="People visiting the Burchie’s food trailer"
-                sizes="(max-width: 768px) 100vw, 45vw"
-                priority
-                className="aspect-[5/4]"
+                className="h-full w-full object-cover object-[center_62%]"
               />
             </div>
           </div>

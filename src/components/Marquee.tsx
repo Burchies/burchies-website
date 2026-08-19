@@ -9,28 +9,35 @@ interface Props {
 /**
  * Seamless infinite marquee.
  *
- * Renders each item twice and animates the track so translateX moves by
- * exactly one group's measured pixel width per cycle. The CSS keyframe
- * reads the pixel distance from a CSS variable (`--marquee-distance`)
- * that JS sets after measuring the first group with `offsetWidth`. Before
- * JS hydrates, falls back to `-50%` of the track so there's still a
- * visible scroll on first paint.
- *
- * This avoids the subpixel rounding that was causing a visible reset
- * mid-cycle in the pure-CSS version.
+ * The first group is measured, then enough identical copies are rendered to
+ * cover the viewport even at the moment the animation loops. This prevents a
+ * blank patch on wide screens when the final item passes by.
  */
 export function Marquee({ items, className = '' }: Props) {
+  const viewportRef = useRef<HTMLDivElement>(null)
   const groupRef = useRef<HTMLUListElement>(null)
   const [distance, setDistance] = useState(0)
+  const [copyCount, setCopyCount] = useState(3)
 
   useEffect(() => {
-    if (!groupRef.current) return
-    const el = groupRef.current
-    const update = () => setDistance(el.offsetWidth)
+    const group = groupRef.current
+    const viewport = viewportRef.current
+    if (!group || !viewport) return
+
+    const update = () => {
+      const groupWidth = group.getBoundingClientRect().width
+      const viewportWidth = viewport.getBoundingClientRect().width
+      if (!groupWidth) return
+
+      setDistance(Math.ceil(groupWidth))
+      setCopyCount(Math.max(3, Math.ceil(viewportWidth / groupWidth) + 2))
+    }
+
     update()
-    const ro = new ResizeObserver(update)
-    ro.observe(el)
-    return () => ro.disconnect()
+    const observer = new ResizeObserver(update)
+    observer.observe(group)
+    observer.observe(viewport)
+    return () => observer.disconnect()
   }, [items])
 
   const trackStyle: CSSProperties =
@@ -43,25 +50,28 @@ export function Marquee({ items, className = '' }: Props) {
 
   return (
     <div
+      ref={viewportRef}
       className={`relative bg-ember text-cream py-6 md:py-8 overflow-hidden noise ${className}`}
     >
-      <div className="marquee-track flex will-change-transform" style={trackStyle}>
-        <ul ref={groupRef} className={groupClass}>
-          {items.map((item, i) => (
-            <li key={i} className={itemClass}>
-              <span>{item}</span>
-              <span aria-hidden className="text-amber">✦</span>
-            </li>
-          ))}
-        </ul>
-        <ul aria-hidden className={groupClass}>
-          {items.map((item, i) => (
-            <li key={i} className={itemClass}>
-              <span>{item}</span>
-              <span aria-hidden className="text-amber">✦</span>
-            </li>
-          ))}
-        </ul>
+      <div
+        className={`marquee-track flex will-change-transform${distance > 0 ? ' marquee-track--ready' : ''}`}
+        style={trackStyle}
+      >
+        {Array.from({ length: copyCount }, (_, copyIndex) => (
+          <ul
+            key={copyIndex}
+            ref={copyIndex === 0 ? groupRef : undefined}
+            aria-hidden={copyIndex > 0}
+            className={groupClass}
+          >
+            {items.map((item, itemIndex) => (
+              <li key={`${copyIndex}-${itemIndex}`} className={itemClass}>
+                <span>{item}</span>
+                <span aria-hidden className="text-amber">✦</span>
+              </li>
+            ))}
+          </ul>
+        ))}
       </div>
     </div>
   )

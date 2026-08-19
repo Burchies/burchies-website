@@ -14,10 +14,10 @@ export function StoryBlock() {
               Burchie’s launched in July 2025 with a trailer, a dream, and an incurable addiction to fried chicken.
             </p>
             <p>
-              Long before the trailer, I was making fried chicken for friends and family—testing recipes, chasing the perfect crunch, and feeding anyone who would volunteer as a taste tester. Their encouragement to take it beyond the kitchen is what turned a long-time passion into Burchie’s.
+              I’ve been obsessed with fried chicken for as long as I can remember. Long before the trailer, I was making it for friends and family—testing recipes, chasing the perfect fried chicken. All the while, I was dreaming of owning a food truck of my own.
             </p>
             <p>
-              For over a year, we’ve been serving up delicious fried chicken, proper sides, and good vibes, while continually tweaking, tasting, and perfecting every recipe along the way.
+              After plenty of encouragement to start selling it, that dream became Burchie’s. For over a year, we’ve been serving up delicious fried chicken, proper sides, and good vibes, while continually tweaking, tasting, and perfecting every recipe along the way.
             </p>
           </div>
           <p className="mt-8 font-editorial italic text-ember text-base">

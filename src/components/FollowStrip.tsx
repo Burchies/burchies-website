@@ -30,7 +30,7 @@ const cards = [
     title: 'Watch Burchie cook',
     body: 'twitch.tv/burchietv — behind the fryer, prep chats, the occasional disaster.',
     cta: 'Tune in',
-    imageSrc: '/socials/twitch-table.png',
+    imageSrc: '/socials/twitch-table.jpg',
     imageAlt: 'Friends at an outdoor table',
     badgeClass: 'text-white bg-[#9146FF]',
   },

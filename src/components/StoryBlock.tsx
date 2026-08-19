@@ -6,7 +6,7 @@ export function StoryBlock() {
     <section id="story" className="relative px-6 md:px-12 py-16 md:py-24 bg-cream">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
         <AnimatedSection>
-          <h2 className="font-display text-4xl md:text-6xl font-bold leading-[0.95] tracking-tight text-charcoal">
+          <h2 className="font-display text-4xl md:text-6xl font-bold leading-[0.95] tracking-tight text-ember">
             Our story
           </h2>
           <div className="mt-8 space-y-5 text-charcoal/80 text-base md:text-lg leading-relaxed">
@@ -20,6 +20,9 @@ export function StoryBlock() {
               For over a year, we’ve been serving up delicious fried chicken, proper sides, and good vibes, while continually tweaking, tasting, and perfecting every recipe along the way.
             </p>
           </div>
+          <p className="mt-8 font-editorial italic text-ember text-base">
+            — Burchie, owner
+          </p>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>

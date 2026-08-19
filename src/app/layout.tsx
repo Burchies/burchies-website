@@ -30,7 +30,7 @@ const jetbrains = JetBrains_Mono({
   display: 'swap',
 })
 
-const socialImage = '/instagram/2026-02-11_07-00-20_DUm8RCHj8Qv_2.jpg'
+const socialImage = '/gallery/crispy-chicken.jpg'
 
 export const metadata: Metadata = {
   title: "Burchie's Fried Chicken — Auckland food truck",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: socialImage,
-        alt: "Burchie's Fried Chicken truck in Auckland",
+        alt: "Burchie's golden fried chicken",
       },
     ],
   },

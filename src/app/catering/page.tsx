@@ -77,8 +77,8 @@ export default function CateringPage() {
             <AnimatedSection delay={0.15}>
               <div className="max-w-md md:max-w-none md:ml-auto">
                 <PhotoTile
-                  src="/socials/instagram-chicken-centred.jpg"
-                  alt="Burchie’s fried chicken with sauce and spring onion"
+                  src="/catering/trailer-event.jpg"
+                  alt="People visiting the Burchie’s food trailer"
                   sizes="(max-width: 768px) 100vw, 45vw"
                   priority
                   className="aspect-[5/4]"

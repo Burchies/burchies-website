@@ -41,12 +41,12 @@ const perks = [
   {
     title: 'We park, we cook, we go.',
     body:
-      'You get the truck, the fryer, the crew, and a stack of crispy chicken. Nothing reheated, nothing pre-cooked.',
+      'You get the trailer, the fryer, the crew, and a stack of crispy fried chicken. No mess, no fuss.',
   },
   {
-    title: 'Five sauces, one cauliflower.',
+    title: 'Vegetarian and vegan friendly.',
     body:
-      'O.G., American, Mexican, Thai, Korean, plus the Korean cauliflower for vegetarian guests. Pick one, pick all.',
+      'We don't just serve chicken, we serve great vegetarian and vegan options too.',
   },
   {
     title: 'Auckland-wide, mostly.',

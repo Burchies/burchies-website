@@ -1,15 +1,6 @@
 export const EVENT_TYPES = ['Wedding', 'Corporate', 'Birthday', 'Private', 'Other'] as const
 export type EventType = typeof EVENT_TYPES[number]
 
-export const VARIANT_OPTIONS = [
-  { value: 'og',         label: 'O.G.' },
-  { value: 'american',   label: 'American' },
-  { value: 'mexican',    label: 'Mexican' },
-  { value: 'thai',       label: 'Thai' },
-  { value: 'korean',     label: 'Korean' },
-  { value: 'cauliflower', label: 'Korean Cauliflower (veg)' },
-] as const
-
 export interface CateringEnquiry {
   name: string
   email: string
@@ -18,7 +9,6 @@ export interface CateringEnquiry {
   eventType: EventType | ''
   guests: string
   location: string
-  variants: string[]
   message: string
   website?: string
 }
@@ -31,11 +21,10 @@ export interface EnquiryErrors {
   eventType?: string
   guests?: string
   location?: string
-  variants?: string
   message?: string
 }
 
-const MIN_GUESTS = 20
+const MIN_GUESTS = 30
 
 export function validateEnquiry(data: CateringEnquiry): EnquiryErrors {
   const errors: EnquiryErrors = {}
@@ -88,10 +77,6 @@ export function validateEnquiry(data: CateringEnquiry): EnquiryErrors {
 
   if (!data.location.trim()) {
     errors.location = 'Where are we parking up?'
-  }
-
-  if (data.variants.length === 0) {
-    errors.variants = 'Pick at least one sauce'
   }
 
   return errors

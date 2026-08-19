@@ -12,6 +12,7 @@ export interface GalleryImage {
 
 interface Props {
   images: GalleryImage[]
+  bottomImages?: GalleryImage[]
   eyebrow?: string
   heading?: string
   highlight?: string
@@ -19,6 +20,7 @@ interface Props {
 
 export function Gallery({
   images,
+  bottomImages = [],
   eyebrow = '',
   heading = 'Our gallery',
   highlight = '',
@@ -26,6 +28,7 @@ export function Gallery({
   const [lightbox, setLightbox] = useState<number | null>(null)
   const [mounted, setMounted] = useState(false)
   const reduce = useReducedMotion()
+  const allImages = [...images, ...bottomImages]
   const close = useCallback(() => setLightbox(null), [])
   const prev = useCallback(
     () => setLightbox((i) => (i !== null ? Math.max(0, i - 1) : null)),
@@ -34,9 +37,9 @@ export function Gallery({
   const next = useCallback(
     () =>
       setLightbox((i) =>
-        i !== null ? Math.min(images.length - 1, i + 1) : null,
+        i !== null ? Math.min(allImages.length - 1, i + 1) : null,
       ),
-    [images.length],
+    [allImages.length],
   )
   const dialogRef = useDialogFocus(lightbox !== null, close)
 
@@ -78,26 +81,53 @@ export function Gallery({
         {images.length > 0 && (
           <div className="mt-14 columns-2 md:columns-3 lg:columns-4 gap-3">
             {images.map((img, i) => (
-            <button
-              key={img.src}
-              type="button"
-              className="reveal-mobile mb-3 break-inside-avoid cursor-pointer overflow-hidden rounded-sm bg-charcoal block w-full"
-              onClick={() => setLightbox(i)}
-              aria-label={'Open ' + img.alt}
-              aria-haspopup="dialog"
-            >
-              <div className="relative w-full group">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  width={800}
-                  height={1000}
-                  loading="lazy"
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                />
-              </div>
-            </button>
+              <button
+                key={img.src}
+                type="button"
+                className="reveal-mobile mb-3 break-inside-avoid cursor-pointer overflow-hidden rounded-sm bg-charcoal block w-full"
+                onClick={() => setLightbox(i)}
+                aria-label={'Open ' + img.alt}
+                aria-haspopup="dialog"
+              >
+                <div className="relative w-full group">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={800}
+                    height={1000}
+                    loading="lazy"
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  />
+                </div>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {bottomImages.length > 0 && (
+          <div className="mt-3 grid grid-cols-2 md:grid-cols-4 gap-3">
+            {bottomImages.map((img, i) => (
+              <button
+                key={img.src}
+                type="button"
+                className="reveal-mobile aspect-square cursor-pointer overflow-hidden rounded-sm bg-charcoal block w-full"
+                onClick={() => setLightbox(images.length + i)}
+                aria-label={'Open ' + img.alt}
+                aria-haspopup="dialog"
+              >
+                <div className="relative w-full h-full group">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={800}
+                    height={800}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 25vw"
+                  />
+                </div>
+              </button>
             ))}
           </div>
         )}
@@ -117,7 +147,7 @@ export function Gallery({
               onClick={close}
               role="dialog"
               aria-modal="true"
-              aria-label={'Gallery image ' + images[lightbox].alt}
+              aria-label={'Gallery image ' + allImages[lightbox].alt}
             >
               <motion.div
                 className="relative max-w-4xl max-h-[90vh]"
@@ -128,8 +158,8 @@ export function Gallery({
                 onClick={(e) => e.stopPropagation()}
               >
                 <Image
-                  src={images[lightbox].src}
-                  alt={images[lightbox].alt}
+                  src={allImages[lightbox].src}
+                  alt={allImages[lightbox].alt}
                   width={1400}
                   height={1800}
                   className="max-h-[85vh] w-auto object-contain rounded-sm"
@@ -155,7 +185,7 @@ export function Gallery({
                   ‹
                 </button>
               )}
-              {lightbox < images.length - 1 && (
+              {lightbox < allImages.length - 1 && (
                 <button
                   type="button"
                   onClick={(e) => { e.stopPropagation(); next() }}

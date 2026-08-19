@@ -7,7 +7,7 @@ import { StoryBlock } from '@/components/StoryBlock'
 import { MenuGrid } from '@/components/MenuGrid'
 import { WhereSection } from '@/components/WhereSection'
 import { CtaStrip } from '@/components/CtaStrip'
-import { galleryImages } from '@/data/gallery'
+import { galleryBottomImages, galleryImages } from '@/data/gallery'
 import { FollowStrip } from '@/components/FollowStrip'
 import { Footer } from '@/components/Footer'
 
@@ -37,7 +37,7 @@ export default function Home() {
         <div aria-hidden className="checker-band" />
         <WhereSection />
         <div aria-hidden className="checker-band" />
-        <Gallery images={galleryImages} />
+        <Gallery images={galleryImages} bottomImages={galleryBottomImages} />
         <div aria-hidden className="checker-band" />
         <CtaStrip
           heading="Feeding a crowd?"

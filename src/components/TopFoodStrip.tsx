@@ -2,26 +2,27 @@ import Image from 'next/image'
 
 const foodImages = [
   {
-    src: '/instagram/2026-02-11_07-00-20_DUm8RCHj8Qv_2.jpg',
-    alt: "Burchie's golden crispy fried chicken",
+    src: '/menu/fried-chicken-bites.jpg',
+    alt: "Burchie's fried chicken bites served with slaw, pickles, and sauce",
     label: 'fried chicken',
     position: 'object-center',
   },
   {
-    src: '/instagram/2025-06-05_23-05-07_DKiXJr7hSPL.jpg',
-    alt: "Burchie's crispy fried chicken sandwich",
+    src: '/menu/fried-chicken-sandwich.jpg',
+    alt: "Burchie's fried chicken sandwich with slaw, pickles, and sauce",
     label: 'sandwich',
     position: 'object-center',
   },
   {
-    src: '/instagram/2025-07-08_23-06-21_DL3VhpgBdEo_5.jpg',
-    alt: "Burchie's Korean-style fried cauliflower",
+    src: '/food/crispy-chicken.jpg',
+    alt: "Burchie's crispy fried cauliflower with slaw, pickles, and dipping sauce",
     label: 'fried cauliflower',
     position: 'object-center',
+    lighting: 'brightness(1.02) contrast(1.08) saturate(1.05)',
   },
   {
-    src: '/instagram/2025-07-17_03-54-25_DMMc2gBv-n3.jpg',
-    alt: "Burchie's Korean-style loaded fries",
+    src: '/menu/loaded-chicken-fries.jpg',
+    alt: "Burchie's loaded fries topped with fried chicken, sauce, and pickles",
     label: 'loaded fries',
     position: 'object-center',
   },
@@ -57,6 +58,7 @@ export function TopFoodStrip() {
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
                   className={`object-cover ${image.position}`}
+                  style={image.lighting ? { filter: image.lighting } : undefined}
                 />
               </div>
               <figcaption className="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-charcoal md:mt-4">

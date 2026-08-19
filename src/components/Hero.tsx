@@ -37,7 +37,7 @@ export function Hero() {
           <h1 className="font-display text-[clamp(2.75rem,8vw,7.5rem)] leading-[0.9] font-bold tracking-tight text-cream">
             <AnimatedWords text="Fried chicken," as="span" className="block" />
             <AnimatedWords
-              text="done properly."
+              text="perfected"
               as="span"
               className="block font-editorial italic font-semibold text-amber"
             />

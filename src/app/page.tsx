@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
 import { Nav } from '@/components/Nav'
 import { Hero } from '@/components/Hero'
+import { TopFoodStrip } from '@/components/TopFoodStrip'
 import { Marquee } from '@/components/Marquee'
 import { StoryBlock } from '@/components/StoryBlock'
 import { MenuGrid } from '@/components/MenuGrid'
@@ -27,6 +28,7 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <TopFoodStrip />
         <Marquee items={marqueeItems} />
         <StoryBlock />
         <div aria-hidden className="checker-band" />

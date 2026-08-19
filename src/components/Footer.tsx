@@ -32,7 +32,7 @@ export function Footer() {
           <p className="text-xs text-cream/70 mt-5 leading-relaxed">
             Made with 🔥 in Auckland, Aotearoa.
             <br />
-            Complaints to the pigeon on the roof.
+            Complaint? never had one (but if you do email us)
           </p>
         </div>
 
@@ -96,7 +96,7 @@ export function Footer() {
 
       <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-cream/15 flex flex-col md:flex-row justify-between items-start gap-2 text-xs text-cream/70">
         <span>© {new Date().getFullYear()} Burchie&rsquo;s Fried Chicken</span>
-        <span className="tracking-widest uppercase">Site by V1C4X Design Studio</span>
+        <span className="tracking-widest">site by BFC design studio</span>
       </div>
     </footer>
   )

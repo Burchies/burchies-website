@@ -8,8 +8,8 @@ const cards = [
     title: 'Follow us',
     body: '@burchies.fried.chicken — schedule updates, new sauces, and whatever Burchie posts at 11pm.',
     cta: 'Say g\u2019day',
-    imageSrc: '/instagram/2025-06-01_06-17-41_DKWQrl6PD8D.jpg',
-    imageAlt: "Burchie's Thai-style fried chicken",
+    imageSrc: '/instagram/2026-03-30_02-29-00_DWfaTdwjwzs.jpg',
+    imageAlt: 'Burchie at the truck',
     // Instagram's signature warm→pink→purple gradient (approximated).
     badgeClass:
       'text-white bg-[linear-gradient(45deg,#F58529_0%,#DD2A7B_50%,#8134AF_100%)]',
@@ -30,8 +30,8 @@ const cards = [
     title: 'Watch Burchie cook',
     body: 'twitch.tv/burchietv — behind the fryer, prep chats, the occasional disaster.',
     cta: 'Tune in',
-    imageSrc: '/instagram/2026-03-30_02-29-00_DWfaTdwjwzs.jpg',
-    imageAlt: 'Latest Burchie\u2019s reel — Burchie at the truck',
+    imageSrc: '/socials/twitch-table.png',
+    imageAlt: 'Friends at an outdoor table',
     badgeClass: 'text-white bg-[#9146FF]',
   },
 ]

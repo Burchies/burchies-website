@@ -10,7 +10,7 @@ export function WhereSection() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
         <AnimatedSection>
           <p className="font-display text-4xl md:text-6xl font-bold leading-[0.95] tracking-tight text-ember mb-5">
-            Our location
+            Our next stop
           </p>
           <h2 className="font-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight text-charcoal">
             The Beerspot{' '}

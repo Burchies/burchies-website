@@ -59,7 +59,7 @@ export function Hero() {
               href="/catering"
               className="text-[11px] tracking-[0.2em] uppercase px-7 py-4 text-cream rounded-full border border-cream/40 hover:border-cream hover:bg-cream hover:text-charcoal transition-all duration-200 font-semibold text-center backdrop-blur-sm"
             >
-              Catering enquiries
+              Book an event
             </Link>
           </motion.div>
         </div>

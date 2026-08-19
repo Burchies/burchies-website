@@ -15,7 +15,7 @@ export function Hero() {
           alt="Burchie standing beside the red-and-white Burchie's Fried Chicken trailer"
           fill
           sizes="100vw"
-          className="object-cover object-[40%_50%] md:object-[52%_47%] scale-[1.2]"
+          className="object-cover object-[40%_42%] md:object-[52%_39%] scale-[1.2]"
           priority
           fetchPriority="high"
           quality={90}

@@ -4,6 +4,7 @@ const config: NextConfig = {
   poweredByHeader: false,
   images: {
     formats: ['image/avif', 'image/webp'],
+    qualities: [75, 90],
   },
   allowedDevOrigins: ['*.trycloudflare.com'],
   async headers() {

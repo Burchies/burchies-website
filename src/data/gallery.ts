@@ -8,6 +8,7 @@ export const galleryImages: GalleryImage[] = [
   { src: '/gallery/2025-08-11_06-32-17_DNNGyjXyZoY_1.avif', alt: 'Burchie’s at a North Shore Rugby event' },
   { src: '/gallery/IMG_5508.jpg', alt: 'Burchie’s team beside the trailer' },
   { src: '/gallery/att.VZWMZ1FLTqtJOJtZdPlIjZvrQHokaV-W-WKQ_wsI5l8.jpg', alt: 'Burchie beside the trailer' },
+  { src: '/gallery/IMG_5140.jpg', alt: 'Burchie’s fried chicken platter and a Beer Spot beer' },
   { src: '/gallery/IMG_5248.jpg', alt: 'Fried chicken served at The Beer Spot' },
   { src: '/gallery/2025-05-26_09-06-07_DKHHL9CPi2i.avif', alt: 'Burchie’s first uniform reveal' },
   { src: '/gallery/IMG_5520.jpg', alt: 'Burchie’s trailer set up at The Beer Spot Morningside' },

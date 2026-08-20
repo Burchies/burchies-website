@@ -9,6 +9,7 @@ import {
 
 const resend = new Resend(process.env.RESEND_API_KEY || 'placeholder')
 const allowedEventTypes = new Set<string>(EVENT_TYPES)
+const from = "Burchie's <hello@burchies.co.nz>"
 
 function esc(str: string): string {
   return String(str ?? '')
@@ -76,8 +77,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Server not configured' }, { status: 500 })
   }
 
-  const from = process.env.CATERING_FROM_EMAIL || "Burchie's <onboarding@resend.dev>"
-
   try {
     const { data: email, error } = await resend.emails.send({
       from,
@@ -98,7 +97,7 @@ export async function POST(req: NextRequest) {
         <h3 style="font-family:system-ui,sans-serif;margin-top:1.5em;margin-bottom:0.3em;">Message</h3>
         <p style="font-family:system-ui,sans-serif;white-space:pre-wrap;">${esc(data.message || '(none)')}</p>
         <hr style="margin:2em 0;border:none;border-top:1px solid #eee;">
-        <p style="font-family:system-ui,sans-serif;color:#777;font-size:12px;">Sent from burchies-website.vercel.app · Reply-to is set to the sender.</p>
+        <p style="font-family:system-ui,sans-serif;color:#777;font-size:12px;">Sent from burchies.co.nz · Reply-to is set to the sender.</p>
       `,
     })
 

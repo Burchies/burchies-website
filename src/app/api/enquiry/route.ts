@@ -79,7 +79,7 @@ export async function POST(req: NextRequest) {
   const from = process.env.CATERING_FROM_EMAIL || "Burchie's <onboarding@resend.dev>"
 
   try {
-    await resend.emails.send({
+    const { data: email, error } = await resend.emails.send({
       from,
       to,
       replyTo: data.email,
@@ -100,6 +100,16 @@ export async function POST(req: NextRequest) {
         <hr style="margin:2em 0;border:none;border-top:1px solid #eee;">
         <p style="font-family:system-ui,sans-serif;color:#777;font-size:12px;">Sent from burchies-website.vercel.app · Reply-to is set to the sender.</p>
       `,
+    })
+
+    if (error) {
+      console.error('Resend error:', error)
+      return NextResponse.json({ error: 'Failed to send email' }, { status: 502 })
+    }
+
+    console.info('Catering enquiry email accepted by Resend', {
+      emailId: email?.id,
+      recipient: to,
     })
   } catch (err) {
     console.error('Resend error:', err)

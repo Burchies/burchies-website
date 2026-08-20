@@ -71,11 +71,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ errors }, { status: 422 })
   }
 
-  const to = process.env.CATERING_TO_EMAIL
-  if (!to) {
-    console.error('CATERING_TO_EMAIL is not set')
-    return NextResponse.json({ error: 'Server not configured' }, { status: 500 })
-  }
+  const to = 'burchies.friedchicken@gmail.com'
 
   try {
     const { data: email, error } = await resend.emails.send({

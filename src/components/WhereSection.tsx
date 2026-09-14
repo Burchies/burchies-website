@@ -26,8 +26,8 @@ export function WhereSection() {
           </address>
           <div className="mt-5 text-sm md:text-base text-charcoal/70 leading-relaxed">
             <p className="font-semibold text-charcoal">Opening hours</p>
-            <p>Sat: 11am–4:30pm approx.</p>
-            <p>Sun: 11am–6:30pm approx.</p>
+            <p>Sat: 10am–5pm</p>
+            <p>Sun: 10am–7pm</p>
           </div>
         </AnimatedSection>
 

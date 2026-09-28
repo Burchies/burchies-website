@@ -8,7 +8,7 @@ export const galleryImages: GalleryImage[] = [
   { src: '/gallery/IMG_5518.jpg', alt: 'Burchie’s trailer set up at The Beer Spot Morningside' },
 
   { src: '/gallery/IMG_5508.jpg', alt: 'Burchie’s team beside the trailer' },
-  { src: '/gallery/2025-07-08_23-06-21_DL3VhpgBdEo_5.avif', alt: 'Korean-style fried cauliflower' },
+  { src: '/gallery/IMG_5580.jpeg', alt: 'Burchie’s fried chicken meal with slaw, pickles, and sauce' },
   { src: '/gallery/IMG_5140.jpg', alt: 'Burchie’s fried chicken platter and a Beer Spot beer' },
   { src: '/gallery/IMG_5255.jpg', alt: 'Burchie’s trailer beneath a tree' },
   { src: '/gallery/IMG_5281.jpg', alt: 'Fried chicken meal at The Cove' },

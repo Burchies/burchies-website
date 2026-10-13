@@ -1,8 +1,8 @@
 import { AnimatedSection } from './AnimatedSection'
 
-const address = '719 Whangaparāoa Road, Whangaparāoa, Auckland 0930'
+const address = '321 Main Road, Kumeu, Auckland 0810'
 const mapSrc =
-  'https://maps.google.com/maps?q=719+Whangaparaoa+Road,+Whangaparaoa,+Auckland+0930&hl=en-NZ&z=16&t=m&output=embed&iwloc=near'
+  'https://maps.google.com/maps?q=321+Main+Road,+Kumeu,+Auckland+0810&hl=en-NZ&z=16&t=m&output=embed&iwloc=near'
 
 export function WhereSection() {
   return (
@@ -15,21 +15,20 @@ export function WhereSection() {
           <h2 className="font-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight text-charcoal">
             The Beer Spot{' '}
             <em className="font-editorial italic text-ember not-italic">
-              Whangaparāoa.
+              Huapai.
             </em>
           </h2>
           <p className="mt-5 text-base md:text-lg text-charcoal/70 leading-relaxed">
-            October 5th–11th
+            October 19th–25th
           </p>
           <address className="mt-7 not-italic text-sm md:text-base text-charcoal/70 leading-relaxed">
             {address}
           </address>
           <div className="mt-5 text-sm md:text-base text-charcoal/70 leading-relaxed">
             <p className="font-semibold text-charcoal">Opening hours</p>
-            <p>Mon–Tue: 12pm–8pm</p>
-            <p>Wed: 12pm–9pm</p>
+            <p>Sun–Mon: 12pm–8pm</p>
+            <p>Tue–Wed: 12pm–9pm</p>
             <p>Thu–Sat: 12pm–10pm</p>
-            <p>Sun: 12pm–8pm</p>
           </div>
         </AnimatedSection>
 
@@ -40,7 +39,7 @@ export function WhereSection() {
           >
             <iframe
               src={mapSrc}
-              title="Map to The Beer Spot Whangaparāoa"
+              title="Map to The Beer Spot Huapai"
               className="absolute inset-0 w-full h-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

@@ -1,8 +1,8 @@
 import { AnimatedSection } from './AnimatedSection'
 
-const address = '321 Main Road, Kumeu, Auckland 0810'
+const address = '54 Northcote Road, Northcote, Auckland 0627'
 const mapSrc =
-  'https://maps.google.com/maps?q=321+Main+Road,+Kumeu,+Auckland+0810&hl=en-NZ&z=16&t=m&output=embed&iwloc=near'
+  'https://maps.google.com/maps?q=54+Northcote+Road,+Northcote,+Auckland+0627&hl=en-NZ&z=16&t=m&output=embed&iwloc=near'
 
 export function WhereSection() {
   return (
@@ -15,11 +15,11 @@ export function WhereSection() {
           <h2 className="font-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight text-charcoal">
             The Beer Spot{' '}
             <em className="font-editorial italic text-ember not-italic">
-              Huapai.
+              Northcote.
             </em>
           </h2>
           <p className="mt-5 text-base md:text-lg text-charcoal/70 leading-relaxed">
-            October 19th–25th
+            November 2nd–8th
           </p>
           <address className="mt-7 not-italic text-sm md:text-base text-charcoal/70 leading-relaxed">
             {address}
@@ -39,7 +39,7 @@ export function WhereSection() {
           >
             <iframe
               src={mapSrc}
-              title="Map to The Beer Spot Huapai"
+              title="Map to The Beer Spot Northcote"
               className="absolute inset-0 w-full h-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

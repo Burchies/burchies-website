@@ -19,7 +19,7 @@ export function WhereSection() {
             </em>
           </h2>
           <p className="mt-5 text-base md:text-lg text-charcoal/70 leading-relaxed">
-            November 2nd–8th
+            November 23rd–28th
           </p>
           <address className="mt-7 not-italic text-sm md:text-base text-charcoal/70 leading-relaxed">
             {address}
